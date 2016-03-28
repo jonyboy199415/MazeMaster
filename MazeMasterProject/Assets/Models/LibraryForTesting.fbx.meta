@@ -1,0 +1,154 @@
+fileFormatVersion: 2
+guid: 60e8eaf1bf8c692459f722ec20143b5e
+timeCreated: 1447727814
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: book1
+    100002: book2
+    100004: book3
+    100006: book:pCube1
+    100008: bookeShelves2
+    100010: bookShelves1
+    100012: bookShelves3
+    100014: bookShelves4
+    100016: bookShelves5
+    100018: ceiling
+    100020: floor
+    100022: //RootNode
+    100024: receiver1
+    100026: table
+    100028: tallLamp
+    100030: tallLamp1
+    100032: walls
+    400000: book1
+    400002: book2
+    400004: book3
+    400006: book:pCube1
+    400008: bookeShelves2
+    400010: bookShelves1
+    400012: bookShelves3
+    400014: bookShelves4
+    400016: bookShelves5
+    400018: ceiling
+    400020: floor
+    400022: //RootNode
+    400024: receiver1
+    400026: table
+    400028: tallLamp
+    400030: tallLamp1
+    400032: walls
+    2300000: book1
+    2300002: book2
+    2300004: book3
+    2300006: book:pCube1
+    2300008: bookeShelves2
+    2300010: bookShelves1
+    2300012: bookShelves3
+    2300014: bookShelves4
+    2300016: bookShelves5
+    2300018: ceiling
+    2300020: floor
+    2300022: receiver1
+    2300024: table
+    2300026: tallLamp
+    2300028: tallLamp1
+    2300030: walls
+    3300000: book1
+    3300002: book2
+    3300004: book3
+    3300006: book:pCube1
+    3300008: bookeShelves2
+    3300010: bookShelves1
+    3300012: bookShelves3
+    3300014: bookShelves4
+    3300016: bookShelves5
+    3300018: ceiling
+    3300020: floor
+    3300022: receiver1
+    3300024: table
+    3300026: tallLamp
+    3300028: tallLamp1
+    3300030: walls
+    4300000: walls
+    4300002: floor
+    4300004: ceiling
+    4300006: table
+    4300008: book:pCube1
+    4300010: book1
+    4300012: book2
+    4300014: book3
+    4300016: tallLamp
+    4300018: tallLamp1
+    4300020: receiver1
+    4300022: bookShelves1
+    4300024: bookeShelves2
+    4300026: bookShelves3
+    4300028: bookShelves4
+    4300030: bookShelves5
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

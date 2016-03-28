@@ -1,0 +1,181 @@
+fileFormatVersion: 2
+guid: 6729407a48da2b84f84e5b573e88f440
+timeCreated: 1447860114
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: chair
+    100004: chair1
+    100006: chair10
+    100008: chair11
+    100010: chair12
+    100012: chair13
+    100014: chair2
+    100016: chair3
+    100018: chair4
+    100020: chair5
+    100022: chair6
+    100024: chair7
+    100026: chair8
+    100028: chair9
+    100030: chairsAndTables
+    100032: floor1
+    100034: piano
+    100036: table
+    100038: table1
+    100040: table2
+    100042: table3
+    100044: walls1
+    400000: //RootNode
+    400002: chair
+    400004: chair1
+    400006: chair10
+    400008: chair11
+    400010: chair12
+    400012: chair13
+    400014: chair2
+    400016: chair3
+    400018: chair4
+    400020: chair5
+    400022: chair6
+    400024: chair7
+    400026: chair8
+    400028: chair9
+    400030: chairsAndTables
+    400032: floor1
+    400034: piano
+    400036: table
+    400038: table1
+    400040: table2
+    400042: table3
+    400044: walls1
+    2300000: chair
+    2300002: chair1
+    2300004: chair10
+    2300006: chair11
+    2300008: chair12
+    2300010: chair13
+    2300012: chair2
+    2300014: chair3
+    2300016: chair4
+    2300018: chair5
+    2300020: chair6
+    2300022: chair7
+    2300024: chair8
+    2300026: chair9
+    2300028: floor1
+    2300030: piano
+    2300032: table
+    2300034: table1
+    2300036: table2
+    2300038: table3
+    2300040: walls1
+    3300000: chair
+    3300002: chair1
+    3300004: chair10
+    3300006: chair11
+    3300008: chair12
+    3300010: chair13
+    3300012: chair2
+    3300014: chair3
+    3300016: chair4
+    3300018: chair5
+    3300020: chair6
+    3300022: chair7
+    3300024: chair8
+    3300026: chair9
+    3300028: floor1
+    3300030: piano
+    3300032: table
+    3300034: table1
+    3300036: table2
+    3300038: table3
+    3300040: walls1
+    4300000: walls1
+    4300002: floor1
+    4300004: piano
+    4300006: table3
+    4300008: table1
+    4300010: chair10
+    4300012: chair9
+    4300014: chair8
+    4300016: chair7
+    4300018: chair6
+    4300020: chair5
+    4300022: chair4
+    4300024: chair3
+    4300026: chair2
+    4300028: chair1
+    4300030: table
+    4300032: chair
+    4300034: chair13
+    4300036: table2
+    4300038: chair11
+    4300040: chair12
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
