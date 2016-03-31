@@ -16,14 +16,14 @@ public class HudScript : MonoBehaviour {
 	void Start () 
 	{
 		Score = 0;
-		Cursor.lockState = CursorLockMode.Locked;
+		//Cursor.lockState = CursorLockMode.Locked;
         timer = 120;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		Cursor.lockState = CursorLockMode.Locked;
+		//Cursor.lockState = CursorLockMode.Locked;
 		//Cursor.visible = false;
 		lootCounter.text = "Loot On Hand: " + Score;
 		StoredLootCounter.text = "Loot In Box " + StoredLoot;
