@@ -6,10 +6,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{B493D412-3DD9-631D-994C-699FF91BDE15}</ProjectGuid>
+    <ProjectGuid>{85A93383-4935-EF94-ADBF-4D0B5371127C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-UnityScript-firstpass</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>Assets</BaseDirectory>
@@ -45,27 +45,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Models\Enemies\ZombieNavigation.cs" />
-     <Compile Include="Assets\Scripts\AbilityToLootScript.cs" />
-     <Compile Include="Assets\Scripts\BlankMazeGen.cs" />
-     <Compile Include="Assets\Scripts\Buff\Buff.cs" />
-     <Compile Include="Assets\Scripts\Buff\BuffFactory.cs" />
-     <Compile Include="Assets\Scripts\CharacterStats.cs" />
-     <Compile Include="Assets\Scripts\ChestLogic.cs" />
-     <Compile Include="Assets\Scripts\DoorWayScript.cs" />
-     <Compile Include="Assets\Scripts\FollowPlayerArrow.cs" />
-     <Compile Include="Assets\Scripts\GameManager.cs" />
-     <Compile Include="Assets\Scripts\MinimapFollow.cs" />
-     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
-     <Compile Include="Assets\Scripts\Player\PlayerRaycast.cs" />
-     <Compile Include="Assets\Scripts\Player\playMovement.cs" />
-     <Compile Include="Assets\Scripts\SamuraiAnimator.cs" />
-     <Compile Include="Assets\Scripts\Spawn.cs" />
-     <Compile Include="Assets\Scripts\UI\HudScript.cs" />
-     <Compile Include="Assets\Scripts\UI\MenusScript.cs" />
-     <Compile Include="Assets\Scripts\doorLogic.cs" />
-     <Compile Include="Assets\Scripts\lootScriptGold.cs" />
-     <Compile Include="Assets\Scripts\wallSpawn.cs" />
+     <Compile Include="Assets\Standard Assets\Props\Standard Assets\Character Controllers\Sources\Scripts\CharacterMotor.js" />
+     <Compile Include="Assets\Standard Assets\Props\Standard Assets\Character Controllers\Sources\Scripts\FPSInputController.js" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
@@ -154,12 +135,6 @@
  <Reference Include="UnityEngine.Networking">
  <HintPath>D:/UnityNew/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{663B6B76-BE7B-DA1A-D4B1-587B6DCBC5BF}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
-    <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
-      <Project>{85A93383-4935-EF94-ADBF-4D0B5371127C}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
