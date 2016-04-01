@@ -148,16 +148,21 @@ public class playMovement : MonoBehaviour {
 
 		if (Input.GetKeyDown(KeyCode.Space)) 
 		{
-			float startHeight = playerBody.transform.position.y;
-			if (playerBody.transform.position.y < startHeight)
-			{
+			if (isJumping == false) {
 				playerBody.AddForce (transform.up * jumpHeight);
+				isJumping = true;
 			}
-		} 
+		}
 //		else 
 //		{
 //			anim.SetBool ("jumping", false);
 //		}
+
+	}
+	void OnCollisionEnter(Collision collision)
+	{
+		if (collision.transform.tag == "Floor")
+			isJumping = false;
 	}
 //	void jump()
 //	{
