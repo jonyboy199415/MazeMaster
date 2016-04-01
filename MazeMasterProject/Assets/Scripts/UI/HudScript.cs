@@ -7,17 +7,17 @@ public class HudScript : MonoBehaviour {
 
 	public Text lootCounter;
 	public Text StoredLootCounter;
-	public Image Boost1;
-	public Image Boost2;
-	public Image Boost3;
-    public float timer;
-    public Text timerT;
+	//public Image Boost1;
+	//public Image Boost2;
+	//public Image Boost3;
+    //public float timer;
+    //public Text timerT;
 	// Use this for initialization
 	void Start () 
 	{
 		Score = 0;
 		//Cursor.lockState = CursorLockMode.Locked;
-        timer = 120;
+        //timer = 120;
 	}
 	
 	// Update is called once per frame
@@ -28,10 +28,10 @@ public class HudScript : MonoBehaviour {
 		lootCounter.text = "Loot On Hand: " + Score;
 		StoredLootCounter.text = "Loot In Box " + StoredLoot;
 
-        timer -= Time.deltaTime;
+        //timer -= Time.deltaTime;
 
-        timerT.text = "Time: " + timer;
-        if (timer <= 0)
+        //timerT.text = "Time: " + timer;
+        /*if (timer <= 0)
         {
             Application.LoadLevel(0);
         }
@@ -52,7 +52,7 @@ public class HudScript : MonoBehaviour {
 			GameObject.FindWithTag("HUD").GetComponent<HudScript>().Boost1State(false);
 			GameObject.FindWithTag("HUD").GetComponent<HudScript>().Boost2State(false);
 			GameObject.FindWithTag("HUD").GetComponent<HudScript>().Boost3State(false);
-		}
+		}*/
 
 
 	}
@@ -64,7 +64,7 @@ public class HudScript : MonoBehaviour {
 	{
 		StoredLoot = StoredLoot + amount;
 	}
-	public void Boost1State(bool State)
+	/*public void Boost1State(bool State)
 	{
 		if (State == true) 
 		{
@@ -98,5 +98,5 @@ public class HudScript : MonoBehaviour {
 			Boost3.color =new Color(0,255,0,.25f);
 		}
 		
-	}
+	}*/
 }

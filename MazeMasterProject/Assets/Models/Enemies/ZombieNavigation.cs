@@ -32,7 +32,6 @@ public class ZombieNavigation : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-       
         if (aggro)
         {
             if (hunting == false)
@@ -41,29 +40,26 @@ public class ZombieNavigation : MonoBehaviour {
                 patrolNumber = Random.Range(0, patrolPoints.Length);
                 agent.ResetPath();
                 anim.SetFloat("aggro", .0f);
-
             }
             else if(hunting)
             { 
                 huntPlayer();
             }
-
         }
         else
         {
             patrol();     
         }
         time = Time.deltaTime + time;
-      
-
     }
     void checkAttack()
     {
         float dist = Vector3.Distance(player.transform.position, transform.position);
         if (dist < attackRange)
         {
-            attack = true;
-            anim.SetBool("canAttack", true);
+            
+			Attack();
+
         }
         else
         {
@@ -107,19 +103,19 @@ public class ZombieNavigation : MonoBehaviour {
             {
                 resetTime();
             }
-            if (Physics.Raycast(transform.position,fwd, out hit,10))
+            if (Physics.Raycast(transform.position,fwd, out hit,100))
             {
                     if (hit.collider.gameObject.tag == "Player")
                     {
                                 hunting = true;
-                                 print("im coming for that booty!");
+                                 //print("im coming for that booty!");
                                  timeStart = false;         
                    }
             }
         if (time > 5.0f && timeStart == true)
         {
             patrol();
-            print("lets go for a walk");
+            //print("lets go for a walk");
             timeStart = false;
         }
     }
@@ -141,24 +137,36 @@ public class ZombieNavigation : MonoBehaviour {
         RaycastHit hit;
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
  
-        if (Physics.Raycast(transform.position, fwd, out hit, 10))
+        if (Physics.Raycast(transform.position, fwd, out hit, 100))
         {
-            if (hit.collider.gameObject.tag == "Player")
+			print (hit.collider.tag);
+            if (hit.collider.tag == "Player")
             {
                 hunting = true;
-                print("im coming for that booty!");
+                //print("im coming for that booty!");
                 timeStart = false;
             }
         }
         if (time > 5.0f && timeStart == true)
         {
             patrol();
-            print("lets go for a walk");
+            //print("lets go for a walk");
             timeStart = false;
         }
 
     }
-
+	public void Attack()
+	{
+		attack = true;
+		anim.SetBool ("canAttack", true);
+		//WaitForAnimation (anim.GetCurrentAnimatorStateInfo (0).fullPathHash);
+	}
+	private IEnumerator WaitForAnimation(Animation anime)
+	{
+		do {
+			yield return null;
+		} while(anime.isPlaying);
+	}
 
     }
 

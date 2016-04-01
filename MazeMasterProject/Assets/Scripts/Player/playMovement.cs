@@ -4,33 +4,18 @@ using System.Collections;
 public class playMovement : MonoBehaviour {
 
 	public float speed = 2.5f;
-
 	public float jumpHeight = 250f;
-
 	public float sensitivityX = 5f;
-
 	public float sensitivityY = 5f;
-
 	public Camera charCamera;
-
 	Vector3 movement;
-
 	Animator anim;
-
 	Rigidbody playerBody;
-
 	bool isFalling = false;
-
 	bool isCrouching;
-
 	private Vector3 vRotation;
+	private bool isJumping;
 
-
-
-
-
-
-	
 	void Awake()
 	{
 		anim = GetComponent<Animator>();
@@ -56,29 +41,12 @@ public class playMovement : MonoBehaviour {
 
 		animating ();
 
-		//jump ();
-
-
-
 	}
 
 
 
 	void animating ()
 	{
-
-//		bool walking = h != 0f || v != 0f;
-//		anim.SetBool ("isWalking", walking);		
-//		bool run = h != 0f || v != 0f;
-//
-//		if (Input.GetKeyDown(KeyCode.LeftShift)) {
-//			anim.SetBool ("running", run);
-//		} 
-//		else 
-//		{
-//			anim.SetBool ("running", false);
-//		}
-
 		//play walking right animation
 		if (Input.GetKey(KeyCode.D)) 
 		{
@@ -180,25 +148,17 @@ public class playMovement : MonoBehaviour {
 
 		if (Input.GetKeyDown(KeyCode.Space)) 
 		{
-			playerBody.AddForce(transform.up*jumpHeight);
-			//anim.SetBool ("jumping", true);
-
+			float startHeight = playerBody.transform.position.y;
+			if (playerBody.transform.position.y < startHeight)
+			{
+				playerBody.AddForce (transform.up * jumpHeight);
+			}
 		} 
 //		else 
 //		{
 //			anim.SetBool ("jumping", false);
 //		}
 	}
-
-	void OnCollisionStay()
-	{
-		isFalling = false;
-		anim.SetBool("falling",false);
-		anim.SetBool("jumping",false);
-
-
-	}
-
 //	void jump()
 //	{
 //		if(Input.GetKeyDown(KeyCode.K))

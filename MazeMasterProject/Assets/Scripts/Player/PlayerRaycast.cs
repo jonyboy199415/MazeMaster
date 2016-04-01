@@ -20,9 +20,9 @@ public class PlayerRaycast : MonoBehaviour {
         RaycastHit hit;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, fReachDistance))
 		{	
-			print(hit.collider.name);
+			//print(hit.collider.name);
             // if the mouse is down it will check for a collider of the object and then from the collider pull the game object and the tag then adds points based on tag and destroys object.
-            if (Input.GetMouseButtonDown(0))
+			if (Input.GetKey(KeyCode.E))
             {
 				switch(hit.collider.gameObject.tag){
 				case "goldCoin":
