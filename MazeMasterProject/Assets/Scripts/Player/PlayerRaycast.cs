@@ -64,7 +64,6 @@ public class PlayerRaycast : MonoBehaviour {
 					break;
 				case "Enemy":
 					fireTimer += Time.deltaTime;
-					print (fireTimer);
 					if (fireTimer >= 3) {
 						Invoke ("Kill", 5);
 						setAblaze ();
