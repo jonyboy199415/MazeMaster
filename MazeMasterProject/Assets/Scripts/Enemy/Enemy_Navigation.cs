@@ -161,7 +161,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 			if (Physics.Raycast(transform.position, fwd, out hit, 100))
 			{
-				print (hit.collider.tag);
+				//print (hit.collider.tag);
 				if (hit.collider.tag == "Player")
 				{
 					hunting = true;

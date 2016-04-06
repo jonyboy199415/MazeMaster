@@ -21,9 +21,21 @@ public class FlameOn : MonoBehaviour {
 			flameOn = false;
 			flames.emissionRate = 0.0f;
 		}
-
-		if (flameOn) {
-			print ("Time: " + Time.deltaTime);
-		}
 	}
+
+	void OnParticleCollision(GameObject other){
+		//Rigidbody body = other.GetComponent<Rigidbody> ();
+		print ("Hit");
+		/*if (other.tag == "Enemy") {
+			print ("Enemy");
+		}
+		if (body.tag == "Enemy") {
+			Vector3 direction = other.transform.position - transform.position;
+			print (body.tag);
+			direction = direction.normalized;
+			body.AddForce (direction * 5);
+		}*/
+	}
+
+
 }
