@@ -30,7 +30,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			//agent = GetComponent<NavMeshAgent>();
 			aggro = false;
 			//anim = GetComponent<Animator>();
-			patrolPoints= GameObject.FindGameObjectsWithTag("patrol");
+			//patrolPoints= GameObject.FindGameObjectsWithTag("patrol");
 			patrolNumber = Random.Range(0, patrolPoints.Length);
 			hunting = false;
 			time = 0.0f;

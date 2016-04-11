@@ -4,17 +4,17 @@ using System.Collections;
 public class PlayerRaycast : MonoBehaviour {
     // intializes the score and then sets up the script variables to be called so we can change them to call animations.
 	public float fReachDistance = 2.0f;
-	public ParticleSystem enemyFire;
-	public GameObject enemy;
+	//public ParticleSystem enemyFire;
+	//public GameObject enemy;
 	private GameObject cam;
-	private float fireTimer;
+	//private float fireTimer;
 
     // Use this for initialization
     void Start ()
     {
 		cam = transform.FindChild ("Camera").gameObject;
-		fireTimer = 0.0f;
-		enemyFire.Pause ();
+		//fireTimer = 0.0f;
+		//enemyFire.Pause ();
     }
 
     // Update is called once per frame
@@ -47,19 +47,19 @@ public class PlayerRaycast : MonoBehaviour {
 				case"door":
 					hit.collider.gameObject.GetComponent<DoorWayScript> ().StartAnime ();
 					break;
-				case "Enemy":
+				/*case "Enemy":
 					fireTimer += Time.deltaTime;
 					if (fireTimer >= 3) {
 						Invoke ("Kill", 5);
 						setAblaze ();
 					}
-					break;
+					break;*/
 				default:
 					break;
 				} //End switch(hit.collider.gameObject.tag)
-			} else {
+			} /*else {
 				fireTimer = 0.0f;
-			}
+			}*/
 		} //End if (Physics.Raycast(ray, out hit))   
 
     }//End void Update()
@@ -76,11 +76,11 @@ public class PlayerRaycast : MonoBehaviour {
 	} //End private void collect(int pPoints, RaycastHit pHit)
 
 	void setAblaze(){
-		enemyFire.Play ();
+		//enemyFire.Play ();
 	}
 
 	void Kill(){
-		enemy.SetActive (false);
+		//enemy.SetActive (false);
 	}
 } //End public class lootScriptGold : MonoBehaviour
 
