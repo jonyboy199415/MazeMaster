@@ -6,6 +6,8 @@ public class FlameOn : MonoBehaviour {
 	public ParticleSystem flames;
 	private bool flameOn;
 
+	public GameObject point;
+
 	// Use this for initialization
 	void Awake () {
 		flames.Pause ();
@@ -21,6 +23,8 @@ public class FlameOn : MonoBehaviour {
 			flameOn = false;
 			flames.emissionRate = 0.0f;
 		}
+
+		flames.startRotation = point.transform.rotation.eulerAngles.y * Mathf.Deg2Rad;
 	}
 
 }
