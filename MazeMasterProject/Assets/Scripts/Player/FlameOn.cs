@@ -28,8 +28,7 @@ public class FlameOn : MonoBehaviour {
 				flames.emissionRate = 0.0f;
 			}
 		}
-
-
+			
 		flames.startRotation = point.transform.rotation.eulerAngles.y * Mathf.Deg2Rad;
 	}
 
