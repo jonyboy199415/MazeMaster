@@ -6,14 +6,13 @@ public class FREEZE : MonoBehaviour {
 	public ParticleSystem ice;
 	private bool freezeOn;
 
-	private bool iceActive;
+	public bool iceActive;
 
 	public GameObject point;
 
 	// Use this for initialization
 	void Start () {
 		ice.Pause ();
-		iceActive = true;
 	}
 	
 	// Update is called once per frame

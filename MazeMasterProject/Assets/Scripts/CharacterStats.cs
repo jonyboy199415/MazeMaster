@@ -11,7 +11,10 @@ public class CharacterStats : MonoBehaviour {
 	private int iDefense;
 	private int iStealth;
 	private int   iLoot;
-	private List<Buff> buffList;	
+	private List<Buff> buffList;
+
+	private FlameOn flameOn;
+	private FREEZE freeze;
 
 	// Use this for initialization
 	void Start () {
@@ -21,6 +24,12 @@ public class CharacterStats : MonoBehaviour {
 		iStealth  = 5;
 		iLoot     = 0;
 		buffList = new List<Buff> ();
+
+		flameOn = GetComponent<FlameOn> ();
+		freeze = GetComponent<FREEZE> ();
+
+		flameOn.fireActive = false;
+		freeze.iceActive = false;
 	}
 	
 	// Update is called once per frame
@@ -28,6 +37,19 @@ public class CharacterStats : MonoBehaviour {
 		//foreach (Buff buff in buffList) {
       	//	buff.Update();
     	//}
+
+		if (Input.GetKey (KeyCode.Alpha1)) {
+			if (flameOn.fireActive == false) {
+				freeze.iceActive = false;
+				flameOn.fireActive = true;
+			}
+		}
+		if (Input.GetKey (KeyCode.Alpha2)) {
+			if (freeze.iceActive == false) {
+				flameOn.fireActive = false;
+				freeze.iceActive = true;
+			}
+		}
 	}
 
 	//------------------------------------------------------------------------------------------------

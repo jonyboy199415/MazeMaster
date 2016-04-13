@@ -8,11 +8,7 @@ public class FlamethrowerCollision : MonoBehaviour {
 	public ParticleSystem iceFire3;
 	public ParticleSystem iceFire4;
 	public ParticleSystem iceFire5;
-	public ParticleSystem fireFire6;
-	public ParticleSystem fireFire7;
-	public ParticleSystem fireFire8;
-	public ParticleSystem fireFire9;
-	public ParticleSystem fireFire10;
+
 	private GameObject IceEthan1;
 	private GameObject IceEthan2;
 	private GameObject IceEthan3;

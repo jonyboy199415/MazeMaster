@@ -6,14 +6,13 @@ public class FlameOn : MonoBehaviour {
 	public ParticleSystem flames;
 	private bool flameOn;
 
-	private bool fireActive;
+	public bool fireActive;
 
 	public GameObject point;
 
 	// Use this for initialization
 	void Awake () {
 		flames.Pause ();
-		fireActive = false;
 	}
 	
 	// Update is called once per frame
