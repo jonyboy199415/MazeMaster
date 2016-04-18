@@ -151,7 +151,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		{
 			checkAttack();
 			agent.SetDestination (player.transform.position);
-			agent.speed = 1f;
+			agent.speed = 0.5f;
 			if (timeStart == false)
 			{
 				resetTime();
