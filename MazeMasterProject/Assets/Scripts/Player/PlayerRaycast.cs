@@ -37,8 +37,8 @@ public class PlayerRaycast : MonoBehaviour {
 					collect (20, hit);
 					break;
 				case "LootHolder":
-					GameObject.FindWithTag ("HUD").GetComponent<HudScript> ().addStoredLoot (GameObject.FindWithTag ("HUD").GetComponent<HudScript> ().Score);
-					collect (-GameObject.FindWithTag ("HUD").GetComponent<HudScript> ().Score, hit);
+					GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().addStoredLoot (GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().CurrentLoot);
+					collect (-GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().CurrentLoot, hit);
 					break;
 				case "Safe":
 					// if the collider is tied to safe tagged game object it will change the bool "Looted" in "ChestLogic>" script to true to open the safe
@@ -68,7 +68,7 @@ public class PlayerRaycast : MonoBehaviour {
 	//Collects the object and increments score.
 	private void collect(int pPoints, RaycastHit pHit){
 		GetComponent<CharacterStats> ().adjLoot (pPoints);
-		GameObject.FindWithTag("HUD").GetComponent<HudScript>().addScore(pPoints);
+		GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().addScore(pPoints);
 		if (pHit.collider.tag != "LootHolder")
 		{
 			Destroy (pHit.collider.gameObject);

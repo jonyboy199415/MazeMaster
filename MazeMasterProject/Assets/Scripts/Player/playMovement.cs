@@ -15,6 +15,7 @@ public class playMovement : MonoBehaviour {
 	bool isCrouching;
 	private Vector3 vRotation;
 	private bool isJumping;
+	public float GroundDist=0.3f;
 
 	void Awake()
 	{
@@ -40,7 +41,16 @@ public class playMovement : MonoBehaviour {
 		charCamera.transform.localEulerAngles = new Vector3 (-vRotation.x, 0, 0);
 
 		animating ();
-
+		DontDestroyOnLoad (gameObject);
+		RaycastHit hitInfo;
+		#if UNITY_EDITOR
+		// helper to visualise the ground check ray in the scene view
+		Debug.DrawLine(transform.position + (Vector3.up * 0.1f), transform.position + (Vector3.up * 0.1f) + (Vector3.down * GroundDist));
+		#endif
+		if (Physics.Raycast(transform.position+(Vector3.up * 0.1f), Vector3.down, out hitInfo, GroundDist)&&isJumping&&!Input.GetKey(KeyCode.Space))
+		{
+			isJumping = false;
+		}
 	}
 
 
@@ -153,16 +163,8 @@ public class playMovement : MonoBehaviour {
 				isJumping = true;
 			}
 		}
-//		else 
-//		{
-//			anim.SetBool ("jumping", false);
-//		}
 
-	}
-	void OnCollisionEnter(Collision collision)
-	{
-		if (collision.transform.tag == "Floor")
-			isJumping = false;
+
 	}
 //	void jump()
 //	{

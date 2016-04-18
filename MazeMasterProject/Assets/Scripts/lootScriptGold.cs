@@ -34,14 +34,14 @@ public class lootScriptGold : MonoBehaviour {
                     if(hit.collider.gameObject.tag=="goldCoin")
                     {
                         score++;
-						GameObject.FindWithTag("HUD").GetComponent<HudScript>().addScore(1);
+						GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().addScore(1);
                         Destroy(hit.collider.gameObject);
                         print(score);
                     }
                     else if (hit.collider.gameObject.tag == "ingot")
                     {
                         score = score + 5;
-						GameObject.FindWithTag("HUD").GetComponent<HudScript>().addScore(5);
+						GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().addScore(5);
                         Destroy(hit.collider.gameObject);
                         print(score);
                     }

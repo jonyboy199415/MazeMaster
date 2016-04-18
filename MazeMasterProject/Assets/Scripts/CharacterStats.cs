@@ -66,7 +66,7 @@ public class CharacterStats : MonoBehaviour {
 
 		//Assign damage and determine amount of loot to drop
 		iLoot = iLoot - liTotalDamage;
-		GameObject.FindWithTag("HUD").GetComponent<HudScript>().addScore(-liTotalDamage);
+		GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().addScore(-liTotalDamage);
 		liLootDrops [1] = liTotalDamage / 5;
 		liLootDrops [0] = liTotalDamage - liLootDrops[1] * 5;
 

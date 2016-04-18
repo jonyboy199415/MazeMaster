@@ -7,6 +7,8 @@ public class HudScript : MonoBehaviour {
 
 	public Text lootCounter;
 	public Text StoredLootCounter;
+	public Image HealthBar;
+	public Image StamBar;
 	//public Image Boost1;
 	//public Image Boost2;
 	//public Image Boost3;
@@ -25,9 +27,10 @@ public class HudScript : MonoBehaviour {
 
 		//Cursor.lockState = CursorLockMode.Locked;
 		//Cursor.visible = false;
-		lootCounter.text = "Loot On Hand: " + Score;
-		StoredLootCounter.text = "Loot In Box " + StoredLoot;
-
+		lootCounter.text = "Loot: " + GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().CurrentLoot;
+//		StoredLootCounter.text = "Loot In Box " + StoredLoot;
+		HealthBar.transform.localScale=new Vector3(GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().HealthRatio,1f,1f);
+		StamBar.transform.localScale=new Vector3(GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().StamRatio,1,1);
         //timer -= Time.deltaTime;
 
         //timerT.text = "Time: " + timer;
@@ -56,14 +59,7 @@ public class HudScript : MonoBehaviour {
 
 
 	}
-	public void addScore(int amount)
-	{
-		Score = Score + amount;
-	}
-	public void addStoredLoot(int amount)
-	{
-		StoredLoot = StoredLoot + amount;
-	}
+
 	/*public void Boost1State(bool State)
 	{
 		if (State == true) 
