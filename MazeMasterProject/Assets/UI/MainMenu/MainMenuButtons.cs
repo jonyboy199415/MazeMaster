@@ -14,7 +14,7 @@ public class MainMenuButtons : MonoBehaviour {
 	}
     public void startClick()
     {
-        Application.Quit();//Change to load the scene
+        Application.LoadLevel("HubArea");
     }
     public void creditsClick()//change to the credits canvas
     {
