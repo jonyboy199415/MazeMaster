@@ -17,12 +17,22 @@ public class IceBlastCollision : MonoBehaviour {
 	void Update () {
 		fireTimer += Time.deltaTime;
 		if (fire) {
-			if (fire.emissionRate >= 10) {
-				FireEthan.SetActive (false);
+			if (fire.emissionRate < 0f) {
+				Destroy (FireEthan);
+			}
+
+			if (fireTimer >= 10f) {
+				fire.emissionRate += 0.1f;
+			}
+
+			if (fire.emissionRate > 10f) {
+				fire.emissionRate = 10f;
 			}
 		} else {
 
 		}
+
+
 
 	}
 
@@ -30,9 +40,10 @@ public class IceBlastCollision : MonoBehaviour {
 		Rigidbody body = other.GetComponent<Rigidbody> ();
 
 		if (body.tag == "FireEthan") {
-			FireEthan = body.GetComponent<GameObject> ();
+			FireEthan = body.gameObject;
 			fire = body.GetComponent<ParticleSystem> ();
-			fire.emissionRate -= 0.1f;
+			fire.emissionRate -= 1f;
+			fireTimer = 0.0f;
 			print (fire.emissionRate);
 		}
 	}

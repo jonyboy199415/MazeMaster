@@ -22,9 +22,18 @@ public class FlamethrowerCollision : MonoBehaviour {
 			if (ice.emissionRate >= 10) {
 				Destroy (IceEthan);
 			}
+
+			if (fireTimer >= 10f) {
+				ice.emissionRate -= 0.1f;
+			}
+			if (ice.emissionRate < 0f) {
+				ice.emissionRate = 0f;
+			}
 		} else {
 
 		}
+
+
 
 	}
 
@@ -34,8 +43,9 @@ public class FlamethrowerCollision : MonoBehaviour {
 		if (body.tag == "IceEthan") {
 			IceEthan = body.gameObject;
 			ice = body.GetComponent<ParticleSystem> ();
-			ice.emissionRate += 0.1f;
-			print (IceEthan + " " + ice.emissionRate);
+			ice.emissionRate += 0.05f;
+			fireTimer = 0.0f;
+			print (ice.emissionRate);
 		}
 	}
 }

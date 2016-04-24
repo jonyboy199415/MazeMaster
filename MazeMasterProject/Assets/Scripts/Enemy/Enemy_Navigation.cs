@@ -29,6 +29,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		{
 			//agent = GetComponent<NavMeshAgent>();
 			aggro = false;
+
+			//player = GameObject.FindGameObjectWithTag ("Player");
+			//patrolDestination = GameObject.FindGameObjectWithTag ("Player");
 			//anim = GetComponent<Animator>();
 			//patrolPoints= GameObject.FindGameObjectsWithTag("patrol");
 			patrolNumber = Random.Range(0, patrolPoints.Length);
@@ -41,6 +44,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 			agent.updateRotation = false;
 			agent.updatePosition = true;
+
+			target = GameObject.FindGameObjectWithTag ("Player").transform;
 		}
 		// Update is called once per frame
 		void Update()
@@ -99,6 +104,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			{
 				player = other.gameObject;
 				aggro = true;
+				hunting = true;
 			}
 
 		}
@@ -178,6 +184,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		public void Attack()
 		{
 			attack = true;
+			print ("Attack");
 		}
 	}
 }
