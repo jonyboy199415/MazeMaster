@@ -17,14 +17,23 @@ public class FREEZE : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().PlayerStam > 0 && !GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().IsStunted) {
+			iceActive = true;
+		} else {
+			iceActive = false;
+		}
+
 		if (iceActive) {
 			if (Input.GetKey (KeyCode.E)) {
 				ice.Play ();
 				freezeOn = true;
 				ice.Emit (50);
+				GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().PlayerLoseStam (10);
 			} else {
 				freezeOn = false;
 			}
+		} else {
+			
 		}
 
 		ice.startRotation = point.transform.rotation.eulerAngles.y * Mathf.Deg2Rad;
