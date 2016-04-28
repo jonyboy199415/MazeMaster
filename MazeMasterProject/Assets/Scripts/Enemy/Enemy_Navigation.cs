@@ -157,7 +157,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		{
 			checkAttack();
 			agent.SetDestination (player.transform.position);
-			agent.speed = 0.5f;
+			agent.speed = 0.75f;
 			if (timeStart == false)
 			{
 				resetTime();
@@ -184,7 +184,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		public void Attack()
 		{
 			attack = true;
-			print ("Attack");
+			float dist = Vector3.Distance(player.transform.position, transform.position);
+			if (dist < 2) {
+				print ("Attack");
+				GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().PlayerTakeDamage (0.5f);
+			}
 		}
 	}
 }

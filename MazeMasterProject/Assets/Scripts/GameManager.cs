@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine .SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager: MonoBehaviour {
 	public GameObject PlayerPrefab;
@@ -22,8 +23,11 @@ public class GameManager: MonoBehaviour {
 
 	public bool IsStunted = false;
 
+	public SpriteRenderer fade;
+
 	void Start(){
 		Player = GameObject.FindGameObjectWithTag ("Player");
+		fade.color = new Color (fade.color.r, fade.color.g, fade.color.b, 0.0f);
 	}
 
 	void Update(){
@@ -50,6 +54,9 @@ public class GameManager: MonoBehaviour {
 		}
 		HealthRatio = PlayerHealth / MaxPlayerHealth;
 		StamRatio = PlayerStam / MaxPlayerStam;
+
+		fade.color = new Color (fade.color.r, fade.color.g, fade.color.b, (HealthRatio-1) * -1);
+		print (HealthRatio);
 	}
 
 	void OnLevelWasLoaded(int Level)
