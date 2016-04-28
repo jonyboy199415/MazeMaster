@@ -23,12 +23,16 @@ public class GameManager: MonoBehaviour {
 
 	public bool IsStunted = false;
 
-	public SpriteRenderer fade;
+	private SpriteRenderer fade;
 
 	void Start(){
 		Player = GameObject.FindGameObjectWithTag ("Player");
+		fade = Player.GetComponentInChildren<SpriteRenderer> ();
+
 		if (fade) {
 			fade.color = new Color (fade.color.r, fade.color.g, fade.color.b, 0.0f);
+		} else {
+			print ("Doesn't exist");
 		}
 	}
 
@@ -58,6 +62,7 @@ public class GameManager: MonoBehaviour {
 		StamRatio = PlayerStam / MaxPlayerStam;
 		if (fade) {
 			fade.color = new Color (fade.color.r, fade.color.g, fade.color.b, (HealthRatio-1) * -1);
+			print (HealthRatio);
 		}
 	}
 
