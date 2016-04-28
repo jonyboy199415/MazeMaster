@@ -13,8 +13,8 @@ public class CharacterStats : MonoBehaviour {
 	private int   iLoot;
 	private List<Buff> buffList;
 
-	private FlameOn flameOn;
-	private FREEZE freeze;
+	public FlameOn flameOn;
+	public FREEZE freeze;
 
 	// Use this for initialization
 	void Start () {
@@ -28,8 +28,8 @@ public class CharacterStats : MonoBehaviour {
 		flameOn = GetComponent<FlameOn> ();
 		freeze = GetComponent<FREEZE> ();
 
-		flameOn.fireActive = false;
-		freeze.iceActive = false;
+		flameOn.fireSet = false;
+		freeze.iceSet = false;
 	}
 	
 	// Update is called once per frame
@@ -39,15 +39,15 @@ public class CharacterStats : MonoBehaviour {
     	//}
 
 		if (Input.GetKey (KeyCode.Alpha1)) {
-			if (flameOn.fireActive == false) {
-				freeze.iceActive = false;
-				flameOn.fireActive = true;
+			if (flameOn.fireSet == false) {
+				freeze.iceSet = false;
+				flameOn.fireSet = true;
 			}
 		}
 		if (Input.GetKey (KeyCode.Alpha2)) {
-			if (freeze.iceActive == false) {
-				flameOn.fireActive = false;
-				freeze.iceActive = true;
+			if (freeze.iceSet == false) {
+				flameOn.fireSet = false;
+				freeze.iceSet = true;
 			}
 		}
 	}

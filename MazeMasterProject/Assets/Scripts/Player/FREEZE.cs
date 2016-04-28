@@ -7,6 +7,7 @@ public class FREEZE : MonoBehaviour {
 	private bool freezeOn;
 
 	public bool iceActive;
+	public bool iceSet;
 
 	public GameObject point;
 
@@ -23,7 +24,7 @@ public class FREEZE : MonoBehaviour {
 			iceActive = false;
 		}
 
-		if (iceActive) {
+		if (iceActive && iceSet) {
 			if (Input.GetKey (KeyCode.E)) {
 				ice.Play ();
 				freezeOn = true;

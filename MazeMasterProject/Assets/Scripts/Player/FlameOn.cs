@@ -7,6 +7,7 @@ public class FlameOn : MonoBehaviour {
 	private bool flameOn;
 
 	public bool fireActive;
+	public bool fireSet;
 
 	public GameObject point;
 
@@ -23,12 +24,12 @@ public class FlameOn : MonoBehaviour {
 			fireActive = false;
 		}
 
-		if (fireActive) {
+		if (fireActive && fireSet) {
 			if (Input.GetKey (KeyCode.E)) {
 				flames.Play ();
 				flameOn = true;
 				flames.emissionRate = 100f;
-				GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().PlayerLoseStam (1);
+				GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().PlayerLoseStam (1.5f);
 			} else {
 				flameOn = false;
 				flames.emissionRate = 0.0f;

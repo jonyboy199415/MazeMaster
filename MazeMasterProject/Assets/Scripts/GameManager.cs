@@ -20,7 +20,7 @@ public class GameManager: MonoBehaviour {
 	public float HealthRatio = 1.0f;
 	public float StamRatio = 1.0f;
 
-	private bool IsStunted = false;
+	public bool IsStunted = false;
 
 	void Start(){
 		Player = GameObject.FindGameObjectWithTag ("Player");
