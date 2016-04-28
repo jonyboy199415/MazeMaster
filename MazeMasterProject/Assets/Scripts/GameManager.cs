@@ -27,7 +27,9 @@ public class GameManager: MonoBehaviour {
 
 	void Start(){
 		Player = GameObject.FindGameObjectWithTag ("Player");
-		fade.color = new Color (fade.color.r, fade.color.g, fade.color.b, 0.0f);
+		if (fade) {
+			fade.color = new Color (fade.color.r, fade.color.g, fade.color.b, 0.0f);
+		}
 	}
 
 	void Update(){
@@ -54,9 +56,9 @@ public class GameManager: MonoBehaviour {
 		}
 		HealthRatio = PlayerHealth / MaxPlayerHealth;
 		StamRatio = PlayerStam / MaxPlayerStam;
-
-		fade.color = new Color (fade.color.r, fade.color.g, fade.color.b, (HealthRatio-1) * -1);
-		print (HealthRatio);
+		if (fade) {
+			fade.color = new Color (fade.color.r, fade.color.g, fade.color.b, (HealthRatio-1) * -1);
+		}
 	}
 
 	void OnLevelWasLoaded(int Level)
