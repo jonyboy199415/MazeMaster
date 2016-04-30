@@ -13,8 +13,8 @@ public class PauseMenu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        if (Input.GetKeyDown("escape") && !isPaused)//PAUSE
+		print (GameObject.Find("FountainShop").GetComponent<Canvas>().enabled);
+		if (Input.GetKeyDown("escape") && !isPaused && !(GameObject.Find("FountainShop").GetComponent<Canvas>().enabled))//PAUSE
         {
             pauseMenu.enabled = true;
             Time.timeScale = 0;

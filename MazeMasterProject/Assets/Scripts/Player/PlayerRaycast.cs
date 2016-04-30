@@ -37,8 +37,9 @@ public class PlayerRaycast : MonoBehaviour {
 					collect (20, hit);
 					break;
 				case "LootHolder":
-					GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().addStoredLoot (GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().CurrentLoot);
-					collect (-GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().CurrentLoot, hit);
+					GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().addStoredLoot (GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().CurrentLoot);
+					collect (-GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().CurrentLoot, hit);
+					GameObject.Find ("FountainShop").GetComponent<shop> ().Activate ();
 					break;
 				case "Safe":
 					// if the collider is tied to safe tagged game object it will change the bool "Looted" in "ChestLogic>" script to true to open the safe

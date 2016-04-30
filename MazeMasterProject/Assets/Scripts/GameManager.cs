@@ -4,7 +4,8 @@ using UnityEngine .SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager: MonoBehaviour {
-	public GameObject PlayerPrefab;
+	public static GameManager Manager;
+	//public GameObject PlayerPrefab;
 	public GameObject Player;
 	public GameObject Spawn;
 	public float MaxPlayerHealth=100f;
@@ -25,23 +26,34 @@ public class GameManager: MonoBehaviour {
 	public bool IsStunted = false;
 
 	private SpriteRenderer fade;
-
+	void Awake()
+	{
+		if (Manager == null) 
+		{
+			DontDestroyOnLoad (gameObject);
+			Manager = this;
+		} else if (Manager != this) 
+		{
+			Destroy (gameObject);
+		}
+	}
 	void Start(){
-		Player = GameObject.FindGameObjectWithTag ("Player");
-		fade = Player.GetComponentInChildren<SpriteRenderer> ();
+		//Player = GameObject.FindGameObjectWithTag ("Player");
+		/*fade = Player.GetComponentInChildren<SpriteRenderer> ();
 
 		if (fade) {
 			fade.color = new Color (fade.color.r, fade.color.g, fade.color.b, 0.0f);
 		} else {
 			print ("Doesn't exist");
-		}
+		}*/
 	}
 
 	void Update(){
-		if(Player==null)
-			Player = GameObject.FindGameObjectWithTag ("Player");
+		/*if(Player==null)
+			Player = GameObject.FindGameObjectWithTag ("Player");*/
 		if (Input.GetKeyUp(KeyCode.M)) {
 			TransferToHub ();
+			Player.transform.rotation = Spawn.transform.rotation;
 		}
 		if (Input.GetKeyUp(KeyCode.N)) {
 			Destroy(gameObject);
@@ -54,8 +66,6 @@ public class GameManager: MonoBehaviour {
 		if (Input.GetKeyUp(KeyCode.G)) {
 			PlayerLoseStam (5);
 		}
-		DontDestroyOnLoad (gameObject);
-		DontDestroyOnLoad (Player);
 		if (PlayerStam < MaxPlayerStam) {
 			PlayerStam += Time.deltaTime * 20f;
 			if (PlayerStam >= MaxPlayerStam) {
@@ -64,72 +74,51 @@ public class GameManager: MonoBehaviour {
 		}
 		HealthRatio = PlayerHealth / MaxPlayerHealth;
 		StamRatio = PlayerStam / MaxPlayerStam;
-		if (fade) {
-			fade.color = new Color (fade.color.r, fade.color.g, fade.color.b, (HealthRatio-1) * -1);
-			print (HealthRatio);
-		}
+		//if (fade) {
+			//fade.color = new Color (fade.color.r, fade.color.g, fade.color.b, (HealthRatio-1) * -1);
+			//print (HealthRatio);
+		//}
 	}
 
 	void OnLevelWasLoaded(int Level)
 	{
 		if (Level == 0) {
 		}
-		if (Level == 1) {
+		else if (Level == 1) {
 			//Player.SetActive (true);
+			//Instantiate(PlayerPrefab);
 			Player = GameObject.FindGameObjectWithTag ("Player");
 			if (LastScene == "MainMenu") {
 				Spawn = GameObject.FindGameObjectWithTag ("SpawnPoint");
-				Player.transform.rotation = new Quaternion (0, 180, 0, 0);
+				Player.transform.rotation = Spawn.transform.rotation;
 			} else if (LastScene == "Maze1") {
 				Spawn = GameObject.FindGameObjectWithTag ("SpawnPoint2");
-				Player.transform.rotation = new Quaternion (0, 270, 0, 0);
+				Player.transform.rotation = Spawn.transform.rotation;
 			} else if (LastScene == "Maze2") {
 				Spawn = GameObject.FindGameObjectWithTag ("SpawnPoint3");
-				Player.transform.rotation = new Quaternion (0, 90, 0, 0);
+				Player.transform.rotation = Spawn.transform.rotation;
 			}else if(LastScene== "Maze3"){
 				Spawn = GameObject.FindGameObjectWithTag ("SpawnPoint4");
-				Player.transform.rotation = new Quaternion(0,0,0,0);
+				Player.transform.rotation = Spawn.transform.rotation;
 			}
 			Player.transform.position = Spawn.transform.position;
-			//Player.transform.rotation = new Quaternion(Spawn.transform.rotation.x,Spawn.transform.rotation.y,Spawn.transform.rotation.z,Spawn.transform.rotation.w);
-			Player.GetComponent<Rigidbody> ().velocity = new Vector3(0,0,0);
-		}
-		if (Level == 2) {
-			//Player.SetActive (true);
+		}else{
+			Player = GameObject.FindGameObjectWithTag ("Player");
 			Spawn = GameObject.FindGameObjectWithTag ("SpawnPoint");
 			Player.transform.position = Spawn.transform.position;
 			Player.transform.rotation = Spawn.transform.rotation;
-			Player.GetComponent<Rigidbody> ().velocity = new Vector3(0,0,0);
-		}
-		if (Level == 3) {
-			//Player.SetActive (true);
-			Spawn = GameObject.FindGameObjectWithTag ("SpawnPoint");
-			Player.transform.position = Spawn.transform.position;
-			Player.transform.rotation= Spawn.transform.rotation;
-			Player.GetComponent<Rigidbody> ().velocity = new Vector3(0,0,0);
-		}
-		if (Level == 4) {
-			//Player.SetActive (true);
-			Spawn = GameObject.FindGameObjectWithTag ("SpawnPoint");
-			Player.transform.position = Spawn.transform.position;
-			Player.transform.rotation = Spawn.transform.rotation;
-			Player.GetComponent<Rigidbody> ().velocity = new Vector3(0,0,0);
 		}
 	}
 
 
 	public void TransferToMenu()
 	{
-
 		SceneManager.LoadSceneAsync("MainMenu");
-
 	}
 	public void TransferToHub()
 	{
-		
 		SceneManager.LoadSceneAsync ("HubArea");
 	}
-
 	public void TransferToMaze1()
 	{
 		SceneManager.LoadScene ("Level1");
@@ -178,7 +167,6 @@ public class GameManager: MonoBehaviour {
 	{
 		Player.transform.position = Spawn.transform.position;
 		Player.transform.rotation = Spawn.transform.rotation;
-		Player.GetComponent<Rigidbody> ().velocity = new Vector3(0,0,0);
 		PlayerHealth = MaxPlayerHealth;
 	}
 

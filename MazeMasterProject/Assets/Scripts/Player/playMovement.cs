@@ -41,7 +41,7 @@ public class playMovement : MonoBehaviour {
 		charCamera.transform.localEulerAngles = new Vector3 (-vRotation.x, 0, 0);
 
 		animating ();
-		DontDestroyOnLoad (gameObject);
+		//DontDestroyOnLoad (gameObject);
 		RaycastHit hitInfo;
 		#if UNITY_EDITOR
 		// helper to visualise the ground check ray in the scene view
@@ -169,20 +169,20 @@ public class playMovement : MonoBehaviour {
 	void OnTriggerEnter(Collider other){
 		switch (other.tag) {
 		case"Maze1Portal":
-			GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().TransferToMaze1();
 			GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().LastScene="Maze1";
+			GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().TransferToMaze1();
 			break;
 		case"Maze2Portal":
-			GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().TransferToMaze2();
 			GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().LastScene="Maze2";
+			GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().TransferToMaze2();
 			break;
 		case"Maze3Portal":
-			GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().TransferToMaze3();
 			GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().LastScene="Maze3";
+			GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().TransferToMaze3();
 			break;
 		case"Maze4Portal":
-			GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().TransferToMaze4();
 			GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().LastScene="Maze4";
+			GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().TransferToMaze4();
 			break;
 		case"HubPortal":
 			GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().TransferToHub();
