@@ -45,8 +45,73 @@ public class PlayerRaycast : MonoBehaviour {
 					// if the collider is tied to safe tagged game object it will change the bool "Looted" in "ChestLogic>" script to true to open the safe
 					hit.collider.gameObject.GetComponent<ChestLogic> ().Looted = true;
 					break;
-				case"door":
-					hit.collider.gameObject.GetComponent<DoorWayScript> ().StartAnime ();
+				case"RedKey":
+					GameManager.Manager.RedKeys++;
+					Destroy (hit.collider.gameObject);
+					break;
+				case"BlueKey":
+					GameManager.Manager.BlueKeys++;
+					Destroy (hit.collider.gameObject);
+					break;
+				case"GreenKey":
+					GameManager.Manager.GreenKeys++;
+					Destroy (hit.collider.gameObject);
+					break;
+				case"YellowKey":
+					GameManager.Manager.YellowKeys++;
+					Destroy (hit.collider.gameObject);
+					break;
+				case"OrangeKey":
+					GameManager.Manager.OrangeKeys++;
+					Destroy (hit.collider.gameObject);
+					break;
+				case"PurpleKey":
+					GameManager.Manager.PurpleKeys++;
+					Destroy (hit.collider.gameObject);
+					break;
+				case"RedDoor":
+					if (GameManager.Manager.RedKeys > 0) {
+						GameManager.Manager.RedKeys--;
+						Destroy (hit.collider.gameObject);
+					}
+					break;
+				case"BlueDoor":
+					if (GameManager.Manager.BlueKeys > 0) {
+						GameManager.Manager.BlueKeys--;
+						Destroy (hit.collider.gameObject);
+					}
+					break;
+				case"GreenDoor":
+					if (GameManager.Manager.GreenKeys > 0) {
+						GameManager.Manager.GreenKeys--;
+						Destroy (hit.collider.gameObject);
+					}
+					break;
+				case"YellowDoor":
+					if (GameManager.Manager.YellowKeys > 0) {
+						GameManager.Manager.YellowKeys--;
+						Destroy (hit.collider.gameObject);
+					}
+					break;
+				case"OrangeDoor":
+					if (GameManager.Manager.OrangeKeys > 0) {
+						GameManager.Manager.OrangeKeys--;
+						Destroy (hit.collider.gameObject);
+					}
+					break;
+				case"PurpleDoor":
+					if (GameManager.Manager.PurpleKeys > 0) {
+						GameManager.Manager.PurpleKeys--;
+						Destroy (hit.collider.gameObject);
+					}
+					break;
+				case "Turkey":
+					GameManager.Manager.PlayerHealth+=50f;
+					Destroy (hit.collider.gameObject);
+					break;
+				case "Apple":
+					GameManager.Manager.PlayerHealth+=10f;
+					Destroy (hit.collider.gameObject);
 					break;
 				/*case "Enemy":
 					fireTimer += Time.deltaTime;

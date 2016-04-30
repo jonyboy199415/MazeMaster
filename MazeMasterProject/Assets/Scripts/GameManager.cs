@@ -19,6 +19,12 @@ public class GameManager: MonoBehaviour {
 	public float SprintCost;
 	public int CurrentLoot;
 	public int StoredLoot;
+	public int RedKeys;
+	public int BlueKeys;
+	public int GreenKeys;
+	public int YellowKeys;
+	public int OrangeKeys;
+	public int PurpleKeys;
 	public float HealthRatio = 1.0f;
 	public float StamRatio = 1.0f;
 	public string LastScene="MainMenu";
@@ -148,7 +154,11 @@ public class GameManager: MonoBehaviour {
 		PlayerHealth -= Damage;
 		if (PlayerHealth <= 0f) {
 			respawn ();
-			CurrentLoot -= 20;
+			if (CurrentLoot >= 0) {
+				CurrentLoot -= 20;
+			} else if (CurrentLoot < 0) {
+				CurrentLoot = 0;
+			}
 		}
 	}
 	public void PlayerLoseStam (float Loss)
