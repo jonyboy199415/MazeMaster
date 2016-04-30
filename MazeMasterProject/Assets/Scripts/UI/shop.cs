@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class shop : MonoBehaviour {
 	public Text ShopMoney;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -18,38 +19,38 @@ public class shop : MonoBehaviour {
 	}
 
 	public void scrollClick(){//increase health
-		if (GameManager.Manager.StoredLoot > 500) { //if the stored loot is greater than the cost of the item
-			GameManager.Manager.StoredLoot -= 500; //decrement the storedloot
+		if (GameManager.Manager.StoredLoot > 200) { //if the stored loot is greater than the cost of the item
+			GameManager.Manager.StoredLoot -= 200; //decrement the storedloot
 			GameManager.Manager.MaxPlayerHealth += 50f;//increment the power up
 		}
 	}
 	public void amuletClick(){//increase stamina
-		if (GameManager.Manager.StoredLoot > 500) {
-			GameManager.Manager.StoredLoot -= 500;
+		if (GameManager.Manager.StoredLoot > 200) {
+			GameManager.Manager.StoredLoot -= 200;
 			GameManager.Manager.MaxPlayerStam += 50f;
 		}
 	}
 	public void boneAmuletClick(){
-		if (GameManager.Manager.StoredLoot > 500) {
-			GameManager.Manager.StoredLoot  -= 500;
+		if (GameManager.Manager.StoredLoot > 200) {
+			GameManager.Manager.StoredLoot  -= 200;
             GameManager.Manager.FirePower += 50f;
 		}
 	}
 	public void statueClick(){
-		if (GameManager.Manager.StoredLoot > 500) {
-			GameManager.Manager.StoredLoot -= 500;
+		if (GameManager.Manager.StoredLoot > 200) {
+			GameManager.Manager.StoredLoot -= 200;
             GameManager.Manager.IcePower += 50f;
         }
 	}
 	public void ringClick(){
-		if (GameManager.Manager.StoredLoot > 500) {
-			GameManager.Manager.StoredLoot -= 500;
+		if (GameManager.Manager.StoredLoot > 200) {
+			GameManager.Manager.StoredLoot -= 200;
             GameManager.Manager.FireCost -= 50f;
         }
 	}
 	public void octopusClick(){
-		if (GameManager.Manager.StoredLoot > 500) {
-			GameManager.Manager.StoredLoot  -= 500;
+		if (GameManager.Manager.StoredLoot > 200) {
+			GameManager.Manager.StoredLoot  -= 200;
             GameManager.Manager.IceCost -= 50f;
         }
 	}
