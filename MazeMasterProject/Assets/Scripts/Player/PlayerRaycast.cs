@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+
 
 public class PlayerRaycast : MonoBehaviour {
     // intializes the score and then sets up the script variables to be called so we can change them to call animations.
@@ -15,6 +17,9 @@ public class PlayerRaycast : MonoBehaviour {
 		cam = transform.FindChild ("Camera").gameObject;
 		//fireTimer = 0.0f;
 		//enemyFire.Pause ();
+		Text Help =GameObject.FindGameObjectWithTag("HUD").GetComponent<HudScript>().HelperText;
+		Text Help2 =GameObject.FindGameObjectWithTag("HUD").GetComponent<HudScript>().HelperText2;
+
     }
 
     // Update is called once per frame
@@ -34,7 +39,7 @@ public class PlayerRaycast : MonoBehaviour {
 					collect (5, hit);
 					break;
 				case "Gem":
-					collect (20, hit);
+					collect (20000, hit);
 					break;
 				case "LootHolder":
 					GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().addStoredLoot (GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().CurrentLoot);
@@ -106,11 +111,17 @@ public class PlayerRaycast : MonoBehaviour {
 					}
 					break;
 				case "Turkey":
-					GameManager.Manager.PlayerHealth+=50f;
+					if(GameManager.Manager.PlayerHealth<GameManager.Manager.MaxPlayerHealth)
+						GameManager.Manager.PlayerHealth+=50f;
+					if(GameManager.Manager.PlayerHealth>GameManager.Manager.MaxPlayerHealth)
+						GameManager.Manager.PlayerHealth=GameManager.Manager.MaxPlayerHealth;
 					Destroy (hit.collider.gameObject);
 					break;
 				case "Apple":
-					GameManager.Manager.PlayerHealth+=10f;
+					if(GameManager.Manager.PlayerHealth<GameManager.Manager.MaxPlayerHealth)
+						GameManager.Manager.PlayerHealth+=20f;
+					if(GameManager.Manager.PlayerHealth>GameManager.Manager.MaxPlayerHealth)
+						GameManager.Manager.PlayerHealth=GameManager.Manager.MaxPlayerHealth;
 					Destroy (hit.collider.gameObject);
 					break;
 				/*case "Enemy":
@@ -123,10 +134,141 @@ public class PlayerRaycast : MonoBehaviour {
 				default:
 					break;
 				} //End switch(hit.collider.gameObject.tag)
-			} /*else {
-				fireTimer = 0.0f;
-			}*/
-		} //End if (Physics.Raycast(ray, out hit))   
+
+
+
+
+
+			} 
+			Text Help =GameObject.FindGameObjectWithTag("ScreenOver").GetComponentInChildren<HudScript>().HelperText;
+			Text Help2 =GameObject.FindGameObjectWithTag("ScreenOver").GetComponentInChildren<HudScript>().HelperText2;
+			//print(hit.collider.gameObject.tag);
+			print(hit.collider.gameObject);
+
+			switch (hit.collider.gameObject.tag) {
+			case "goldCoin":
+				Help.text = "Press: E to Gather Coin";
+				Help2.text = "Press: E to Gather Coin";
+				break;
+			case "ingot":
+				Help.text = "Press: E to Gather Bar";
+				Help2.text = "Press: E to Gather Bar";
+				break;
+			case "Gem":
+				Help.text = "Press: E to Gather Gem";
+				Help2.text = "Press: E to Gather Gem";
+				break;
+			case "LootHolder":
+				Help.text = "Press: E to Store loot and Access Shop";
+				Help2.text = "Press: E to Store loot and Access Shop";
+				break;
+			case"RedKey":
+				Help.text = "Press: E to pick Up Red Key";
+				Help2.text = "Press: E to pick Up Red Key";
+				break;
+			case"BlueKey":
+				Help.text = "Press: E to pick Up Blue Key";
+				Help2.text = "Press: E to pick Up Blue Key";
+				break;
+			case"GreenKey":
+				Help.text = "Press: E to pick Up Green Key";
+				Help2.text = "Press: E to pick Up Green Key";
+				break;
+			case"YellowKey":
+				Help.text = "Press: E to pick Up Yellow Key";
+				Help2.text = "Press: E to pick Up Yellow Key";
+				break;
+			case"OrangeKey":
+				Help.text = "Press: E to pick Up Orange Key";
+				Help2.text = "Press: E to pick Up Orange Key";
+				break;
+			case"PurpleKey":
+				Help.text = "Press: E to pick Up Purple Key";
+				Help2.text = "Press: E to pick Up Purple Key";
+				break;
+			case"RedDoor":
+				if (GameManager.Manager.RedKeys > 0) {
+					Help.text = "Press: E to Unlock Red Gate";
+					Help2.text = "Press: E to Unlock Red Gate";
+				} else {
+					Help.text = "You Need a Red Key to Unlock This Gate";
+					Help2.text = "You Need a Red Key to Unlock This Gate";
+				}
+				break;
+			case"BlueDoor":
+				if (GameManager.Manager.BlueKeys > 0) {
+					Help.text = "Press: E to Unlock Blue Gate";
+					Help2.text = "Press: E to Unlock Blue Gate";
+				} else {
+					Help.text = "You Need a Blue Key to Unlock This Gate";
+					Help2.text = "You Need a Blue Key to Unlock This Gate";
+				}
+				break;
+			case"GreenDoor":
+				if (GameManager.Manager.GreenKeys > 0) {
+					Help.text = "Press: E to Unlock Green Gate";
+					Help2.text = "Press: E to Unlock Green Gate";
+				} else {
+					Help.text = "You Need a Green Key to Unlock This Gate";
+					Help2.text = "You Need a Green Key to Unlock This Gate";
+				}
+				break;
+			case"YellowDoor":
+				if (GameManager.Manager.YellowKeys > 0) {
+					Help.text = "Press: E to Unlock Yellow Gate";
+					Help2.text = "Press: E to Unlock Yellow Gate";
+				} else {
+					Help.text = "You Need a Yellow Key to Unlock This Gate";
+					Help2.text = "You Need a Yellow Key to Unlock This Gate";
+				}
+				break;
+			case"OrangeDoor":
+				if (GameManager.Manager.OrangeKeys > 0) {
+					Help.text = "Press: E to Unlock Orange Gate";
+					Help2.text = "Press: E to Unlock Orange Gate";
+				} else {
+					Help.text = "You Need a Orange Key to Unlock This Gate";
+					Help2.text = "You Need a Orange Key to Unlock This Gate";
+				}
+				break;
+			case"PurpleDoor":
+				if (GameManager.Manager.PurpleKeys > 0) {
+					Help.text = "Press: E to Unlock Purple Gate";
+					Help2.text = "Press: E to Unlock Purple Gate";
+				} else {
+					Help.text = "You Need a Purple Key to Unlock This Gate";
+					Help2.text = "You Need a Purple Key to Unlock This Gate";
+				}
+				break;
+			case "Turkey":
+				Help.text = "Press: E to Eat Turkey";
+				Help2.text = "Press: E to Eat Turkey";
+				break;
+			case "Apple":
+				Help.text = "Press: E to Eat Apple";
+				Help2.text = "Press: E to Eat Apple";
+				break;
+			case null:
+				Help.text = "";
+				Help2.text = "";
+				break;
+			default:
+				Help.text = "";
+				Help2.text = "";
+				break;
+			}
+
+				
+
+		}
+		else
+		{
+			Text Help =GameObject.FindGameObjectWithTag("ScreenOver").GetComponentInChildren<HudScript>().HelperText;
+			Text Help2 =GameObject.FindGameObjectWithTag("ScreenOver").GetComponentInChildren<HudScript>().HelperText2;
+			Help.text = "";
+			Help2.text = "";
+		}
+		//End if (Physics.Raycast(ray, out hit))   
 
     }//End void Update()
 

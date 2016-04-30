@@ -15,6 +15,8 @@ public class HudScript : MonoBehaviour {
 	public Text YellowKeycounter;
 	public Text OrangeKeycounter;
 	public Text PurpleKeycounter;
+	public Text HelperText;
+	public Text HelperText2;
 	//public Image Boost1;
 	//public Image Boost2;
 	//public Image Boost3;

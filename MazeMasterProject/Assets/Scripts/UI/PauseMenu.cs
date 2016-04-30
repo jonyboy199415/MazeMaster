@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour {
     private bool isPaused = false;
     public Canvas pauseMenu;
+	public GameObject Hud;
 
 	// Use this for initialization
 	void Start () {
@@ -13,16 +14,18 @@ public class PauseMenu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		print (GameObject.Find("FountainShop").GetComponent<Canvas>().enabled);
+		//print (GameObject.Find("FountainShop").GetComponent<Canvas>().enabled);
 		if (Input.GetKeyDown("escape") && !isPaused && !(GameObject.Find("FountainShop").GetComponent<Canvas>().enabled))//PAUSE
         {
             pauseMenu.enabled = true;
+			Hud.SetActive (false);
             Time.timeScale = 0;
             isPaused = true;
         }
         else if (Input.GetKeyDown("escape") && isPaused)//UNPAUSE
         {
             pauseMenu.enabled = false;
+			Hud.SetActive (true);
             Time.timeScale = 1;
             isPaused = false;
         }

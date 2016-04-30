@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class MainMenuButtons : MonoBehaviour {
-
+	public GameObject TitleScreen;
+	public GameObject CreditsScreen;
 	// Use this for initialization
 	void Start () {
 	
@@ -18,8 +19,14 @@ public class MainMenuButtons : MonoBehaviour {
     }
     public void creditsClick()//change to the credits canvas
     {
-        Application.Quit();
+		TitleScreen.SetActive (false);
+		CreditsScreen.SetActive (true);
     }
+	public void BackClick()//change to the credits canvas
+	{
+		TitleScreen.SetActive (true);
+		CreditsScreen.SetActive (false);
+	}
     public void exitClick()
     {
         Application.Quit();

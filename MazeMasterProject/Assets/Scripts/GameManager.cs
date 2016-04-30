@@ -73,7 +73,7 @@ public class GameManager: MonoBehaviour {
 			PlayerLoseStam (5);
 		}
 		if (PlayerStam < MaxPlayerStam) {
-			PlayerStam += Time.deltaTime * 20f;
+			PlayerStam += Time.deltaTime * (MaxPlayerStam*0.1f);
 			if (PlayerStam >= MaxPlayerStam) {
 				IsStunted = false;
 			}

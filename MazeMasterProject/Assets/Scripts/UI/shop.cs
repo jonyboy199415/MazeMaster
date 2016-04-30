@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class shop : MonoBehaviour{
 	public Text ShopMoney;
     public Text shopText;
+	public GameObject Hud;
 	// Use this for initialization
 	void Start () {
 	
@@ -15,7 +16,8 @@ public class shop : MonoBehaviour{
 	void Update () {
 		ShopMoney.text ="Stored Loot: "+GameManager.Manager.StoredLoot;
 		if (Input.GetKeyUp ("escape")) {
-			DeActivate ();
+			if(gameObject.GetComponent<Canvas> ().enabled)
+				DeActivate ();
 		}
 	}
 
@@ -58,11 +60,13 @@ public class shop : MonoBehaviour{
 	public void Activate()
 	{
 		gameObject.GetComponent<Canvas> ().enabled = true;
+		Hud.SetActive (false);
 		Time.timeScale = 0;
 	}
 	public void DeActivate()
 	{
 		gameObject.GetComponent<Canvas> ().enabled = false;
+		Hud.SetActive (true);
 		Time.timeScale = 1;
 	}
 }
