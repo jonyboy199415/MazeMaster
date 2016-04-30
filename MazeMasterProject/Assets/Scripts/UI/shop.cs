@@ -2,9 +2,10 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class shop : MonoBehaviour {
-	public Text ShopMoney;
 
+public class shop : MonoBehaviour{
+	public Text ShopMoney;
+    public Text shopText;
 	// Use this for initialization
 	void Start () {
 	
