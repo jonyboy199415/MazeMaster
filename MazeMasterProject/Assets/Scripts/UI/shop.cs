@@ -13,6 +13,7 @@ public class shop : MonoBehaviour {
 	void Update () {
 	
 	}
+	/*
 	public void scrollClick(){//increase health
 		if (GameManager.StoredLoot > 500) { //if the stored loot is greater than the cost of the item
 			GameManager.StoredLoot = GameManager.StoredLoot - 500; //decrement the storedloot
@@ -45,5 +46,6 @@ public class shop : MonoBehaviour {
 			GameManager.StoredLoot = GameManager.StoredLoot - 500;
 		}
 	}
+	*/
 		
 }

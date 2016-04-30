@@ -166,6 +166,31 @@ public class playMovement : MonoBehaviour {
 
 
 	}
+	void OnTriggerEnter(Collider other){
+		switch (other.tag) {
+		case"Maze1Portal":
+			GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().TransferToMaze1();
+			GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().LastScene="Maze1";
+			break;
+		case"Maze2Portal":
+			GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().TransferToMaze2();
+			GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().LastScene="Maze2";
+			break;
+		case"Maze3Portal":
+			GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().TransferToMaze3();
+			GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().LastScene="Maze3";
+			break;
+		case"Maze4Portal":
+			GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().TransferToMaze4();
+			GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().LastScene="Maze4";
+			break;
+		case"HubPortal":
+			GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().TransferToHub();
+			break;
+		}
+	}
+
+
 //	void jump()
 //	{
 //		if(Input.GetKeyDown(KeyCode.K))

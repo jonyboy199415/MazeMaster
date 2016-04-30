@@ -20,6 +20,7 @@ public class GameManager: MonoBehaviour {
 	public int StoredLoot;
 	public float HealthRatio = 1.0f;
 	public float StamRatio = 1.0f;
+	public string LastScene="MainMenu";
 
 	public bool IsStunted = false;
 
@@ -37,6 +38,8 @@ public class GameManager: MonoBehaviour {
 	}
 
 	void Update(){
+		if(Player==null)
+			Player = GameObject.FindGameObjectWithTag ("Player");
 		if (Input.GetKeyUp(KeyCode.M)) {
 			TransferToHub ();
 		}
@@ -52,6 +55,7 @@ public class GameManager: MonoBehaviour {
 			PlayerLoseStam (5);
 		}
 		DontDestroyOnLoad (gameObject);
+		DontDestroyOnLoad (Player);
 		if (PlayerStam < MaxPlayerStam) {
 			PlayerStam += Time.deltaTime * 20f;
 			if (PlayerStam >= MaxPlayerStam) {
@@ -70,10 +74,45 @@ public class GameManager: MonoBehaviour {
 	{
 		if (Level == 0) {
 		}
-		else if (Level == 1) {
-			Player.SetActive (true);
+		if (Level == 1) {
+			//Player.SetActive (true);
+			Player = GameObject.FindGameObjectWithTag ("Player");
+			if (LastScene == "MainMenu") {
+				Spawn = GameObject.FindGameObjectWithTag ("SpawnPoint");
+				Player.transform.rotation = new Quaternion (0, 180, 0, 0);
+			} else if (LastScene == "Maze1") {
+				Spawn = GameObject.FindGameObjectWithTag ("SpawnPoint2");
+				Player.transform.rotation = new Quaternion (0, 270, 0, 0);
+			} else if (LastScene == "Maze2") {
+				Spawn = GameObject.FindGameObjectWithTag ("SpawnPoint3");
+				Player.transform.rotation = new Quaternion (0, 90, 0, 0);
+			}else if(LastScene== "Maze3"){
+				Spawn = GameObject.FindGameObjectWithTag ("SpawnPoint4");
+				Player.transform.rotation = new Quaternion(0,0,0,0);
+			}
+			Player.transform.position = Spawn.transform.position;
+			//Player.transform.rotation = new Quaternion(Spawn.transform.rotation.x,Spawn.transform.rotation.y,Spawn.transform.rotation.z,Spawn.transform.rotation.w);
+			Player.GetComponent<Rigidbody> ().velocity = new Vector3(0,0,0);
+		}
+		if (Level == 2) {
+			//Player.SetActive (true);
 			Spawn = GameObject.FindGameObjectWithTag ("SpawnPoint");
-			Player.transform.position = (new Vector3 (Spawn.transform.position.x, Spawn.transform.position.y, Spawn.transform.position.z));
+			Player.transform.position = Spawn.transform.position;
+			Player.transform.rotation = Spawn.transform.rotation;
+			Player.GetComponent<Rigidbody> ().velocity = new Vector3(0,0,0);
+		}
+		if (Level == 3) {
+			//Player.SetActive (true);
+			Spawn = GameObject.FindGameObjectWithTag ("SpawnPoint");
+			Player.transform.position = Spawn.transform.position;
+			Player.transform.rotation= Spawn.transform.rotation;
+			Player.GetComponent<Rigidbody> ().velocity = new Vector3(0,0,0);
+		}
+		if (Level == 4) {
+			//Player.SetActive (true);
+			Spawn = GameObject.FindGameObjectWithTag ("SpawnPoint");
+			Player.transform.position = Spawn.transform.position;
+			Player.transform.rotation = Spawn.transform.rotation;
 			Player.GetComponent<Rigidbody> ().velocity = new Vector3(0,0,0);
 		}
 	}
@@ -87,17 +126,21 @@ public class GameManager: MonoBehaviour {
 	}
 	public void TransferToHub()
 	{
+		
 		SceneManager.LoadSceneAsync ("HubArea");
 	}
 
 	public void TransferToMaze1()
 	{
+		SceneManager.LoadScene ("Level1");
 	}
 	public void TransferToMaze2()
 	{
+		SceneManager.LoadScene ("Level 2");
 	}
 	public void TransferToMaze3()
 	{
+		SceneManager.LoadScene ("Level3");
 	}
 	public void TransferToMaze4()
 	{
@@ -133,7 +176,8 @@ public class GameManager: MonoBehaviour {
 	}
 	public void respawn()
 	{
-		Player.transform.position = (new Vector3 (Spawn.transform.position.x, Spawn.transform.position.y, Spawn.transform.position.z));
+		Player.transform.position = Spawn.transform.position;
+		Player.transform.rotation = Spawn.transform.rotation;
 		Player.GetComponent<Rigidbody> ().velocity = new Vector3(0,0,0);
 		PlayerHealth = MaxPlayerHealth;
 	}
