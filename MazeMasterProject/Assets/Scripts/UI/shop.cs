@@ -32,22 +32,26 @@ public class shop : MonoBehaviour {
 	public void boneAmuletClick(){
 		if (GameManager.Manager.StoredLoot > 500) {
 			GameManager.Manager.StoredLoot  -= 500;
+            GameManager.Manager.FirePower += 50f;
 		}
 	}
 	public void statueClick(){
 		if (GameManager.Manager.StoredLoot > 500) {
 			GameManager.Manager.StoredLoot -= 500;
-		}
+            GameManager.Manager.IcePower += 50f;
+        }
 	}
 	public void ringClick(){
 		if (GameManager.Manager.StoredLoot > 500) {
 			GameManager.Manager.StoredLoot -= 500;
-		}
+            GameManager.Manager.FireCost -= 50f;
+        }
 	}
 	public void octopusClick(){
 		if (GameManager.Manager.StoredLoot > 500) {
 			GameManager.Manager.StoredLoot  -= 500;
-		}
+            GameManager.Manager.IceCost -= 50f;
+        }
 	}
 	public void Activate()
 	{
