@@ -34,9 +34,11 @@ public class PauseMenu : MonoBehaviour {
 	}
     public void resumeClick()//Unpuse
     {
-        pauseMenu.enabled = false;
-        Time.timeScale = 1;
-        isPaused = false;
+		pauseMenu.enabled = false;
+		Hud.enabled =true;
+		Time.timeScale = 1;
+		isPaused = false;
+	}
 
     }
     public void exitClick()//Unpuse
