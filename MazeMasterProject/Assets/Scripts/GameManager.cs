@@ -182,7 +182,7 @@ public class GameManager: MonoBehaviour {
 			respawn ();
 			if (CurrentLoot >= 0) {
 				CurrentLoot -= 20;
-			} else if (CurrentLoot < 0) {
+			}if (CurrentLoot < 0) {
 				CurrentLoot = 0;
 			}
 		}
