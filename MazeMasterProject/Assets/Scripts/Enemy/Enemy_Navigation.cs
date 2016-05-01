@@ -186,8 +186,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			attack = true;
 			float dist = Vector3.Distance(player.transform.position, transform.position);
 			if (dist < 2) {
-				print ("Attack");
-				GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().PlayerTakeDamage (0.5f);
+				GameManager.Manager.PlayerTakeDamage (0.5f);
 			}
 		}
 	}
