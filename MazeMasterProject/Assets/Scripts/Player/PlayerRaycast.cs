@@ -144,7 +144,7 @@ public class PlayerRaycast : MonoBehaviour {
 			Text Help2 =GameObject.FindGameObjectWithTag("ScreenOver").GetComponentInChildren<HudScript>().HelperText2;
 
 			//print(hit.collider.gameObject.tag);
-			print(hit.collider.gameObject);
+			//print(hit.collider.gameObject);
 
 			switch (hit.collider.gameObject.tag) {
 			case "goldCoin":

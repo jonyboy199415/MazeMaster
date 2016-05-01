@@ -3,8 +3,10 @@ using System.Collections;
 
 public class IceBlastCollision : MonoBehaviour {
 	private GameObject FireEthan;
+	private GameObject FireWall;
 
 	private ParticleSystem fire;
+	private ParticleSystem wallFire;
 
 	private float fireTimer;
 
@@ -32,19 +34,35 @@ public class IceBlastCollision : MonoBehaviour {
 
 		}
 
+		if (wallFire) {
+			if (wallFire.emissionRate < 0f) {
+				Destroy (FireWall);
+			}
+		}
 
 
 	}
 
 	void OnParticleCollision(GameObject other){
 		Rigidbody body = other.GetComponent<Rigidbody> ();
-
+		print (other.gameObject);
 		if (body.tag == "FireEthan") {
 			FireEthan = body.gameObject;
 			fire = body.GetComponent<ParticleSystem> ();
 			fire.emissionRate -= 1f;
 			fireTimer = 0.0f;
 			print (fire.emissionRate);
+		}
+
+		if (body.tag == "FireWall") {
+			print ("0");
+			FireWall = body.gameObject;
+			print ("1");
+			wallFire = body.GetComponent<ParticleSystem> ();
+			print ("2");
+			wallFire.emissionRate = 0.0f;
+			print ("3");
+
 		}
 	}
 }

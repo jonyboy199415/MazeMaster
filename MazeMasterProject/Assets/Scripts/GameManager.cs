@@ -85,7 +85,6 @@ public class GameManager: MonoBehaviour {
 		StamRatio = PlayerStam / MaxPlayerStam;
 		if (redFade) {
 			redFade.color = new Color (redFade.color.r, redFade.color.g, redFade.color.b, (HealthRatio-1) * -1);
-			print (HealthRatio);
 		}
 	}
 
