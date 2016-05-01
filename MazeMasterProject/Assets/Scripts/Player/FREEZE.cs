@@ -25,7 +25,7 @@ public class FREEZE : MonoBehaviour {
 		}
 
 		if (iceActive && iceSet) {
-			if (Input.GetKey (KeyCode.E)) {
+			if (Input.GetMouseButton(0)) {
 				ice.Play ();
 				freezeOn = true;
 				ice.Emit (50);

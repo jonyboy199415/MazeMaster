@@ -25,7 +25,7 @@ public class FlameOn : MonoBehaviour {
 		}
 
 		if (fireActive && fireSet) {
-			if (Input.GetKey (KeyCode.E)) {
+			if (Input.GetMouseButton(0)) {
 				flames.Play ();
 				flameOn = true;
 				flames.emissionRate = 100f;
