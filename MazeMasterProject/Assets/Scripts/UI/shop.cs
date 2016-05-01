@@ -25,12 +25,16 @@ public class shop : MonoBehaviour{
 		if (GameManager.Manager.StoredLoot > 200) { //if the stored loot is greater than the cost of the item
 			GameManager.Manager.StoredLoot -= 200; //decrement the storedloot
 			GameManager.Manager.MaxPlayerHealth += 50f;//increment the power up
+			GameManager.Manager.PlayerHealth= GameManager.Manager.MaxPlayerHealth;//set health back to max
+			GameManager.Manager.IsStunted=false;
 		}
 	}
 	public void amuletClick(){//increase stamina
 		if (GameManager.Manager.StoredLoot > 200) {
 			GameManager.Manager.StoredLoot -= 200;
 			GameManager.Manager.MaxPlayerStam += 50f;
+			GameManager.Manager.PlayerStam= GameManager.Manager.MaxPlayerStam;//set health back to max
+			GameManager.Manager.IsStunted=false;
 		}
 	}
 	public void boneAmuletClick(){

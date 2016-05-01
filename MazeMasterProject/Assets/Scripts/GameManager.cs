@@ -28,6 +28,10 @@ public class GameManager: MonoBehaviour {
 	public float HealthRatio = 1.0f;
 	public float StamRatio = 1.0f;
 	public string LastScene="MainMenu";
+	public bool CanFire=false;
+	public bool CanIce =false;
+	public bool IsFire=false;
+	public bool IsIce =false;
 
 	public bool IsStunted = false;
 
@@ -85,6 +89,16 @@ public class GameManager: MonoBehaviour {
 		StamRatio = PlayerStam / MaxPlayerStam;
 		if (redFade) {
 			redFade.color = new Color (redFade.color.r, redFade.color.g, redFade.color.b, (HealthRatio-1) * -1);
+		}
+		if (Input.GetKeyUp (KeyCode.Q)) {
+			if (IsFire && CanIce) {
+				IsFire=false;
+				IsIce = true;
+			}else if (IsIce && CanFire) {
+				IsIce=false;
+				if(CanFire)
+					IsFire = true;
+			}
 		}
 	}
 

@@ -24,12 +24,12 @@ public class FREEZE : MonoBehaviour {
 			iceActive = false;
 		}
 
-		if (iceActive && iceSet) {
-			if (Input.GetMouseButton(0)) {
+		if (iceActive && GameManager.Manager.IsIce) {
+			if (Input.GetMouseButtonDown(0)) {
 				ice.Play ();
 				freezeOn = true;
 				ice.Emit (50);
-				GameManager.Manager.PlayerLoseStam (10);
+				GameManager.Manager.PlayerLoseStam (30);
 			} else {
 				freezeOn = false;
 			}

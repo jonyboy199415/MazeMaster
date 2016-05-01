@@ -149,6 +149,7 @@ public class playMovement : MonoBehaviour {
 		{
 			anim.SetBool ("running", true);
 			speed = 5f;
+			GameManager.Manager.PlayerLoseStam (0.02f);
 		}
 		else if (Input.GetKeyUp (KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.W))
 		{

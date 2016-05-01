@@ -24,7 +24,7 @@ public class FlameOn : MonoBehaviour {
 			fireActive = false;
 		}
 
-		if (fireActive && fireSet) {
+		if (fireActive && GameManager.Manager.IsFire) {
 			if (Input.GetMouseButton(0)) {
 				flames.Play ();
 				flameOn = true;

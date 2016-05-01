@@ -124,6 +124,18 @@ public class PlayerRaycast : MonoBehaviour {
 						GameManager.Manager.PlayerHealth=GameManager.Manager.MaxPlayerHealth;
 					Destroy (hit.collider.gameObject);
 					break;
+				case "FireOrb":
+					GameManager.Manager.CanFire = true;
+					GameManager.Manager.IsFire = true;
+					GameManager.Manager.IsIce = false;
+					Destroy (hit.collider.gameObject);
+					break;
+				case "IceOrb":
+					GameManager.Manager.CanIce = true;
+					GameManager.Manager.IsIce = true;
+					GameManager.Manager.IsFire = false;
+					Destroy (hit.collider.gameObject);
+					break;
 				/*case "Enemy":
 					fireTimer += Time.deltaTime;
 					if (fireTimer >= 3) {
@@ -248,6 +260,14 @@ public class PlayerRaycast : MonoBehaviour {
 			case "Apple":
 				Help.text = "Press: E to Eat Apple";
 				Help2.text = "Press: E to Eat Apple";
+				break;
+			case "FireOrb":
+				Help.text = "Press: E Absorb Fire Orb and Unlock Fire Spell";
+				Help2.text = "Press: E Absorb Fire Orb and Unlock Fire Spell";
+				break;
+			case "IceOrb":
+				Help.text = "Press: E Absorb Ice Orb and Unlock Ice Spell";
+				Help2.text = "Press: E Absorb Ice Orb and Unlock Ice Spell";
 				break;
 			case null:
 				Help.text = "";
