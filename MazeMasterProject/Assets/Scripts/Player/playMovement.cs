@@ -145,11 +145,13 @@ public class playMovement : MonoBehaviour {
 			speed = 3f;
 		}
 
-		if (Input.GetKeyDown (KeyCode.LeftShift) && Input.GetKey(KeyCode.W))
+		if (Input.GetKey (KeyCode.LeftShift) && Input.GetKey(KeyCode.W))
 		{
-			anim.SetBool ("running", true);
-			speed = 5f;
-			GameManager.Manager.PlayerLoseStam (0.02f);
+			if (!GameManager.Manager.IsStunted) {
+				anim.SetBool ("running", true);
+				speed = 5f;
+				GameManager.Manager.PlayerLoseStam (1f);
+			}
 		}
 		else if (Input.GetKeyUp (KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.W))
 		{
