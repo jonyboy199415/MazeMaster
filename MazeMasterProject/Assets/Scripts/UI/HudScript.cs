@@ -32,9 +32,9 @@ public class HudScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		lootCounter.text = "Loot: " + GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().CurrentLoot;
-		HealthBar.transform.localScale=new Vector3(GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().HealthRatio,1f,1f);
-		StamBar.transform.localScale=new Vector3(GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().StamRatio,1,1);
+		lootCounter.text = "Loot: " + GameManager.Manager.CurrentLoot;
+		HealthBar.transform.localScale=new Vector3(GameManager.Manager.HealthRatio,1f,1f);
+		StamBar.transform.localScale=new Vector3(GameManager.Manager.StamRatio,1,1);
 		RedKeycounter.text = ""+GameManager.Manager.RedKeys;
 		BlueKeycounter.text = ""+GameManager.Manager.BlueKeys;
 		GreenKeycounter.text = ""+GameManager.Manager.GreenKeys;

@@ -142,6 +142,7 @@ public class PlayerRaycast : MonoBehaviour {
 			} 
 			Text Help =GameObject.FindGameObjectWithTag("ScreenOver").GetComponentInChildren<HudScript>().HelperText;
 			Text Help2 =GameObject.FindGameObjectWithTag("ScreenOver").GetComponentInChildren<HudScript>().HelperText2;
+
 			//print(hit.collider.gameObject.tag);
 			print(hit.collider.gameObject);
 
@@ -265,6 +266,7 @@ public class PlayerRaycast : MonoBehaviour {
 		{
 			Text Help =GameObject.FindGameObjectWithTag("ScreenOver").GetComponentInChildren<HudScript>().HelperText;
 			Text Help2 =GameObject.FindGameObjectWithTag("ScreenOver").GetComponentInChildren<HudScript>().HelperText2;
+
 			Help.text = "";
 			Help2.text = "";
 		}

@@ -18,7 +18,7 @@ public class FlameOn : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().PlayerStam > 0 && !GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().IsStunted) {
+		if (GameManager.Manager.PlayerStam > 0 && !GameManager.Manager.IsStunted) {
 			fireActive = true;
 		} else {
 			fireActive = false;
@@ -29,7 +29,7 @@ public class FlameOn : MonoBehaviour {
 				flames.Play ();
 				flameOn = true;
 				flames.emissionRate = 100f;
-				GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().PlayerLoseStam (1.5f);
+				GameManager.Manager.PlayerLoseStam (1.5f);
 			} else {
 				flameOn = false;
 				flames.emissionRate = 0.0f;

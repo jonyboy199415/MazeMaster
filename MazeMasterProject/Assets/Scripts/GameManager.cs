@@ -31,7 +31,8 @@ public class GameManager: MonoBehaviour {
 
 	public bool IsStunted = false;
 
-	private SpriteRenderer fade;
+	private Image redFade;
+	private GameObject redFadeObject;
 	void Awake()
 	{
 		if (Manager == null) 
@@ -42,6 +43,8 @@ public class GameManager: MonoBehaviour {
 		{
 			Destroy (gameObject);
 		}
+
+
 	}
 	void Start(){
 		//Player = GameObject.FindGameObjectWithTag ("Player");
@@ -80,10 +83,10 @@ public class GameManager: MonoBehaviour {
 		}
 		HealthRatio = PlayerHealth / MaxPlayerHealth;
 		StamRatio = PlayerStam / MaxPlayerStam;
-		//if (fade) {
-			//fade.color = new Color (fade.color.r, fade.color.g, fade.color.b, (HealthRatio-1) * -1);
-			//print (HealthRatio);
-		//}
+		if (redFade) {
+			redFade.color = new Color (redFade.color.r, redFade.color.g, redFade.color.b, (HealthRatio-1) * -1);
+			print (HealthRatio);
+		}
 	}
 
 	void OnLevelWasLoaded(int Level)
@@ -93,6 +96,11 @@ public class GameManager: MonoBehaviour {
 		else if (Level == 1) {
 			//Player.SetActive (true);
 			//Instantiate(PlayerPrefab);
+			redFadeObject = GameObject.FindGameObjectWithTag ("RedFade");
+			if (redFadeObject != null) {
+				redFade = redFadeObject.GetComponent<Image> ();
+				redFade.color = new Color (redFade.color.r, redFade.color.g, redFade.color.b, 0.0f);
+			}
 			Player = GameObject.FindGameObjectWithTag ("Player");
 			if (LastScene == "MainMenu") {
 				Spawn = GameObject.FindGameObjectWithTag ("SpawnPoint");
@@ -109,6 +117,11 @@ public class GameManager: MonoBehaviour {
 			}
 			Player.transform.position = Spawn.transform.position;
 		}else{
+			redFadeObject = GameObject.FindGameObjectWithTag ("RedFade");
+			if (redFadeObject != null) {
+				redFade = redFadeObject.GetComponent<Image> ();
+				redFade.color = new Color (redFade.color.r, redFade.color.g, redFade.color.b, 0.0f);
+			}
 			Player = GameObject.FindGameObjectWithTag ("Player");
 			Spawn = GameObject.FindGameObjectWithTag ("SpawnPoint");
 			Player.transform.position = Spawn.transform.position;
