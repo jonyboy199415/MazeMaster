@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class shop : MonoBehaviour{
 	public Text ShopMoney;
     public Text shopText;
-	public GameObject Hud;
+	public Canvas Hud;
 	// Use this for initialization
 	void Start () {
 	
@@ -60,13 +60,13 @@ public class shop : MonoBehaviour{
 	public void Activate()
 	{
 		gameObject.GetComponent<Canvas> ().enabled = true;
-		Hud.SetActive (false);
+		Hud.enabled=false;
 		Time.timeScale = 0;
 	}
 	public void DeActivate()
 	{
 		gameObject.GetComponent<Canvas> ().enabled = false;
-		Hud.SetActive (true);
+		Hud.enabled=true;
 		Time.timeScale = 1;
 	}
 }
