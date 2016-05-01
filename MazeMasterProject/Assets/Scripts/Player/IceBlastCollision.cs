@@ -51,18 +51,12 @@ public class IceBlastCollision : MonoBehaviour {
 			fire = body.GetComponent<ParticleSystem> ();
 			fire.emissionRate -= 1f;
 			fireTimer = 0.0f;
-			print (fire.emissionRate);
 		}
 
 		if (body.tag == "FireWall") {
-			print ("0");
 			FireWall = body.gameObject;
-			print ("1");
 			wallFire = body.GetComponent<ParticleSystem> ();
-			print ("2");
-			wallFire.emissionRate = 0.0f;
-			print ("3");
-
+			wallFire.emissionRate -= 2.0f;
 		}
 	}
 }
