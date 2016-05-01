@@ -39,8 +39,6 @@ public class PauseMenu : MonoBehaviour {
 		Time.timeScale = 1;
 		isPaused = false;
 	}
-
-    }
     public void exitClick()//Unpuse
     {
         Application.Quit();
