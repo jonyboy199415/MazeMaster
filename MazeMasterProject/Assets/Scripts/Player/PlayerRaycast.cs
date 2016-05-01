@@ -129,12 +129,14 @@ public class PlayerRaycast : MonoBehaviour {
 					GameManager.Manager.IsFire = true;
 					GameManager.Manager.IsIce = false;
 					Destroy (hit.collider.gameObject);
+					GameManager.Manager.TransferToHub ();
 					break;
 				case "IceOrb":
 					GameManager.Manager.CanIce = true;
 					GameManager.Manager.IsIce = true;
 					GameManager.Manager.IsFire = false;
 					Destroy (hit.collider.gameObject);
+					GameManager.Manager.TransferToHub ();
 					break;
 				/*case "Enemy":
 					fireTimer += Time.deltaTime;
