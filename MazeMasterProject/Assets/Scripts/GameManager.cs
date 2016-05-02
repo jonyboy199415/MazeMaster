@@ -170,6 +170,7 @@ public class GameManager: MonoBehaviour {
 	}
 	public void TransferToMaze4()
 	{
+		SceneManager.LoadScene ("Level4");
 	}
 
 	public void SaveGame ()
