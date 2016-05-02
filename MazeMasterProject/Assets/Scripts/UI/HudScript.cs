@@ -15,6 +15,8 @@ public class HudScript : MonoBehaviour {
 	public Text YellowKeycounter;
 	public Text OrangeKeycounter;
 	public Text PurpleKeycounter;
+	public Text WhiteKeycounter;
+	public Text BlackKeycounter;
 	public Text HelperText;
 	public Text HelperText2;
 	//public Image Boost1;
@@ -41,6 +43,8 @@ public class HudScript : MonoBehaviour {
 		YellowKeycounter.text = ""+GameManager.Manager.YellowKeys;
 		OrangeKeycounter.text = ""+GameManager.Manager.OrangeKeys;
 		PurpleKeycounter.text = ""+GameManager.Manager.PurpleKeys;
+		WhiteKeycounter.text = ""+GameManager.Manager.WhiteKeys;
+		BlackKeycounter.text = ""+GameManager.Manager.BlackKeys;
 	}
 
 	/*public void Boost1State(bool State)

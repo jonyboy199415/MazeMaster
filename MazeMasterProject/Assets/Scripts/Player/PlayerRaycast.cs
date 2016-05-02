@@ -33,13 +33,13 @@ public class PlayerRaycast : MonoBehaviour {
 			if (Input.GetKey (KeyCode.E)) {
 				switch (hit.collider.gameObject.tag) {
 				case "goldCoin":
-					collect (1, hit);
+					collect (10, hit);
 					break;
 				case "ingot":
-					collect (5, hit);
+					collect (30, hit);
 					break;
 				case "Gem":
-					collect (20000, hit);
+					collect (50, hit);
 					break;
 				case "LootHolder":
 					GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().addStoredLoot (GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().CurrentLoot);
@@ -72,6 +72,14 @@ public class PlayerRaycast : MonoBehaviour {
 					break;
 				case"PurpleKey":
 					GameManager.Manager.PurpleKeys++;
+					Destroy (hit.collider.gameObject);
+					break;
+				case"WhiteKey":
+					GameManager.Manager.WhiteKeys++;
+					Destroy (hit.collider.gameObject);
+					break;
+				case"BlackKey":
+					GameManager.Manager.BlackKeys++;
 					Destroy (hit.collider.gameObject);
 					break;
 				case"RedDoor":
@@ -108,6 +116,17 @@ public class PlayerRaycast : MonoBehaviour {
 					if (GameManager.Manager.PurpleKeys > 0) {
 						GameManager.Manager.PurpleKeys--;
 						Destroy (hit.collider.gameObject);
+					}
+					break;
+				case"WhiteGate":
+					if (GameManager.Manager.WhiteKeys > 0) {
+						GameManager.Manager.WhiteKeys--;
+						Destroy (hit.collider.gameObject);
+					}
+					break;
+				case"TrapDoor":
+					if (GameManager.Manager.BlackKeys > 0) {
+						GameManager.Manager.TransferToMaze4 ();
 					}
 					break;
 				case "Turkey":
@@ -201,6 +220,14 @@ public class PlayerRaycast : MonoBehaviour {
 				Help.text = "Press: E to pick Up Purple Key";
 				Help2.text = "Press: E to pick Up Purple Key";
 				break;
+			case"WhiteKey":
+				Help.text = "Press: E to pick Up White Key";
+				Help2.text = "Press: E to pick Up White Key";
+				break;
+			case"BlackKey":
+				Help.text = "Press: E to pick Up Black Key";
+				Help2.text = "Press: E to pick Up Black Key";
+				break;
 			case"RedDoor":
 				if (GameManager.Manager.RedKeys > 0) {
 					Help.text = "Press: E to Unlock Red Gate";
@@ -253,6 +280,24 @@ public class PlayerRaycast : MonoBehaviour {
 				} else {
 					Help.text = "You Need a Purple Key to Unlock This Gate";
 					Help2.text = "You Need a Purple Key to Unlock This Gate";
+				}
+				break;
+			case"WhiteGate":
+				if (GameManager.Manager.WhiteKeys > 0) {
+					Help.text = "Press: E to Unlock White Gate";
+					Help2.text = "Press: E to Unlock White Gate";
+				} else {
+					Help.text = "You Need a White Key to Unlock This Gate";
+					Help2.text = "You Need a White Key to Unlock This Gate";
+				}
+				break;
+			case"TrapDoor":
+				if (GameManager.Manager.BlackKeys > 0) {
+					Help.text = "Press: E to Unlock Trap Door";
+					Help2.text = "Press: E to Unlock Trap Door";
+				} else {
+					Help.text = "You Need a Black Key to Unlock This Door";
+					Help2.text = "You Need a Black Key to Unlock This Door";
 				}
 				break;
 			case "Turkey":

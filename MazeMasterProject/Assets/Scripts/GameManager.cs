@@ -25,6 +25,8 @@ public class GameManager: MonoBehaviour {
 	public int YellowKeys;
 	public int OrangeKeys;
 	public int PurpleKeys;
+	public int WhiteKeys;
+	public int BlackKeys;
 	public float HealthRatio = 1.0f;
 	public float StamRatio = 1.0f;
 	public string LastScene="MainMenu";
