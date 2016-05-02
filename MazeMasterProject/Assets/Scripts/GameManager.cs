@@ -129,6 +129,9 @@ public class GameManager: MonoBehaviour {
 			}else if(LastScene== "Maze3"){
 				Spawn = GameObject.FindGameObjectWithTag ("SpawnPoint4");
 				Player.transform.rotation = Spawn.transform.rotation;
+			}else if(LastScene== "Maze4"){
+				Spawn = GameObject.FindGameObjectWithTag ("SpawnPoint5");
+				Player.transform.rotation = Spawn.transform.rotation;
 			}
 			Player.transform.position = Spawn.transform.position;
 		}else{

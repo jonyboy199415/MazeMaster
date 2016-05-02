@@ -19,6 +19,7 @@ public class HudScript : MonoBehaviour {
 	public Text BlackKeycounter;
 	public Text HelperText;
 	public Text HelperText2;
+	public GameObject WinScreen;
 	//public Image Boost1;
 	//public Image Boost2;
 	//public Image Boost3;
@@ -46,6 +47,14 @@ public class HudScript : MonoBehaviour {
 		WhiteKeycounter.text = ""+GameManager.Manager.WhiteKeys;
 		BlackKeycounter.text = ""+GameManager.Manager.BlackKeys;
 	}
+	public void Win()
+	{
+		WinScreen.SetActive (true);
+	}
+	public void OnMenuClick(){
+		GameManager.Manager.TransferToMenu();
+	}
+
 
 	/*public void Boost1State(bool State)
 	{

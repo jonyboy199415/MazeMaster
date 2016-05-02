@@ -127,6 +127,13 @@ public class PlayerRaycast : MonoBehaviour {
 				case"TrapDoor":
 					if (GameManager.Manager.BlackKeys > 0) {
 						GameManager.Manager.TransferToMaze4 ();
+						GameManager.Manager.LastScene = "Maze4";
+					}
+					break;
+				case"Chest":
+					if (GameManager.Manager.WhiteKeys > 3) {
+						GameObject.FindGameObjectWithTag ("ScreenOver").GetComponentInChildren<HudScript>().Win();
+						//print ("You Win");
 					}
 					break;
 				case "Turkey":
@@ -298,6 +305,15 @@ public class PlayerRaycast : MonoBehaviour {
 				} else {
 					Help.text = "You Need a Black Key to Unlock This Door";
 					Help2.text = "You Need a Black Key to Unlock This Door";
+				}
+				break;
+			case"Chest":
+				if (GameManager.Manager.WhiteKeys > 3) {
+					Help.text = "Press: E to Unlock Final Treasure";
+					Help2.text = "Press: E to Unlock Final Treasure";
+				} else {
+					Help.text = "You Need a 4 White Keys to Unlock This";
+					Help2.text = "You Need a 4 White Keys to Unlock This";
 				}
 				break;
 			case "Turkey":
