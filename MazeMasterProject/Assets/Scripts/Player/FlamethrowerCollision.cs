@@ -53,7 +53,6 @@ public class FlamethrowerCollision : MonoBehaviour {
 			ice = body.GetComponent<ParticleSystem> ();
 			ice.emissionRate += 0.05f;
 			fireTimer = 0.0f;
-			print (ice.emissionRate);
 		}
 
 		if (body.tag == "VineWall") {

@@ -50,8 +50,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		// Update is called once per frame
 		void Update()
 		{
-			Debug.DrawLine (transform.position, player.transform.position);
-
 			if (target != null) {
 				agent.SetDestination (target.position);
 			}
@@ -188,13 +186,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			attack = true;
 			float dist = Vector3.Distance(player.transform.position, transform.position);
 			if (dist < 1) {
-				RaycastHit hit;
-				Vector3 towardPlayer = transform.position-player.transform.position;
-				if (Physics.Raycast (transform.position, towardPlayer, out hit, 100)) {
-					if (hit.collider.tag == "Player") {
-						GameManager.Manager.PlayerTakeDamage (0.5f);
-					}
-				}
+				GameManager.Manager.PlayerTakeDamage (0.5f);
 			}
 		}
 	}
